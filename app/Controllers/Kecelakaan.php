@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Controllers;
-use App\Models\AduanModel;
+use App\Models\KecelakaanModel;
 
-class Aduan extends BaseController
+class Kecelakaan extends BaseController
 {
     public function __construct()
     {
@@ -13,19 +13,21 @@ class Aduan extends BaseController
     public function index()
     {
         helper(['form', 'url']);
-        $model = new AduanModel();
+        $model = new KecelakaanModel();
 
 		if($this->request->getPost('submit')) {
 			$validation =  \Config\Services::validation();
 			
 			$validation->setRules([
-				'judul' => ['label' => 'Judul', 'rules' => 'required|min_length[5]|max_length[30]'], 
+				'pelapor' => ['label' => 'Nama Pelapor', 'rules' => 'required|min_length[5]|max_length[30]'], 
+				'korban' => ['label' => 'Nama Korban', 'rules' => 'required|min_length[5]|max_length[30]'], 
 				'wa' => ['label' => 'No Whatsapp', 'rules' => 'required|min_length[10]|max_length[13]'], 
+				'lokasi' => ['label' => 'Lokasi Kecelakaan', 'rules' => 'required|min_length[5]|max_length[250]'], 
 				// 'lampiran[]' => ['label' => 'lampiran', 'rules' => 'required'] 
 			]);
 			
 			if (!$validation->withRequest($this->request)->run()) {
-				echo view('aduan', ['errors' => $validation->getErrors()]);
+				echo view('kecelakaan', ['errors' => $validation->getErrors()]);
 			} else {
                 if ($files = $this->request->getFileMultiple('lampiran')) {
                     $errors = [];
@@ -42,25 +44,28 @@ class Aduan extends BaseController
                     }
     
                     if ($errors) { 
-                        echo view('aduan', ['errors' => $errors]);
+                        echo view('kecelakaan', ['errors' => $errors]);
                     }else{
-                        $data=[
-                            'judul'=>$this->request->getPost('judul'),
-                            'isi'=>$this->request->getPost('isi'),
-                            'nama'=>$this->request->getPost('nama'),
+                        $data=[ 
+                            'pelapor'=>$this->request->getPost('pelapor'),
+                            'korban'=>$this->request->getPost('korban'),
                             'wa'=>$this->request->getPost('wa'),
                             'tgl'=>$this->request->getPost('tgl'),
                             'lokasi'=>$this->request->getPost('lokasi'),
+                            'jenis'=>$this->request->getPost('jenis'),
+                            'rs'=>$this->request->getPost('rs'),
+                            'inputLat'=>$this->request->getPost('inputLat'),
+                            'inputLng'=>$this->request->getPost('inputLng'),
                             'lampiran'=>$lampirane,
                             'date_created'=>date('Y-m-d')
                         ];
-                        $model->create_aduan($data);
+                        $model->create_kecelakaan($data);
                         echo view('sukses', ['success' => 'Laporan anda telah dikirim.']); 
                     }
                 } 
 			}
 		} else {
-			echo view('aduan');
+			echo view('kecelakaan');
 		}
     }
 

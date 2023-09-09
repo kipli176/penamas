@@ -1,0 +1,15 @@
+{
+"background_color": "#48a9f8",
+"description": "Pena Mas - Aplikasi Pelayanan Masyarakat.",
+"display": "fullscreen",
+"icons": [
+  {
+    "src": "/assets/images/logo.png",
+    "sizes": "200x200",
+    "type": "image/png"
+  }
+],
+"name": "PENA MAS",
+"short_name": "PENA MAS",
+"start_url": "/"
+}

@@ -16,15 +16,17 @@
 	<meta property="og:image" content="https://jobie.dexignzone.com/mobile-app/xhtml/social-image.png"/>
 	<meta name="format-detection" content="telephone=no">
     
+	<!-- PWA Version -->
+	<link rel="manifest" href="/assets/manifest.json">
     <!-- Favicons Icon -->
-	<link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png" />
+	<link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png" />
     
     <!-- Title -->
 	<title>PENA MAS</title>
     
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="assets/vendor/swiper/swiper-bundle.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" href="/assets/vendor/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,7 +51,7 @@
 		<div class="container vh-100">
 			<div class="welcome-area">
 				<div class="welcome-logo">
-                <img src="https://rekrutmen.jasaraharja.co.id/assets/frontend/images/fav-icon-jr.png">
+                <img src="/assets/images/fav-icon-jr.png">
 					<div class="get-started">
 						<h1 class="dz-title" style="color: white;">PENA MAS</h1>
 						<!-- <p>Pengaduan Masyarakat</p> -->
@@ -63,25 +65,25 @@
 					</div>
 					<a href="/aduan" class="card h-auto">
 						<div class="d-flex align-items-center">
-							<img src="assets/images/welcome/wlc-2.svg" alt="">
+							<img src="/assets/images/welcome/wlc-2.svg" alt="">
 							<div class="ms-4">
 								<h5>Pengaduan</h5>
 								<p>Klik disini untuk pengaduan</p>
 							</div>
 						</div>
 					</a>
-					<a href="login.html" class="card h-auto">
+					<a href="/aspirasi" class="card h-auto">
 						<div class="d-flex align-items-center">
-							<img src="assets/images/welcome/wlc-1.svg" alt="">
+							<img src="/assets/images/welcome/wlc-1.svg" alt="">
 							<div class="ms-4">
 								<h5>Aspirasi</h5>
 								<p>Klik disini untuk menyampaikan aspirasi</p>
 							</div>
 						</div>    
 					</a>
-					<a href="login.html" class="card h-auto">
+					<a href="/kecelakaan" class="card h-auto">
 						<div class="d-flex align-items-center">
-							<img src="assets/images/welcome/wlc-3.png" alt="">
+							<img src="/assets/images/welcome/wlc-3.png" alt="">
 							<div class="ms-4">
 								<h5>Kecelakaan</h5>
 								<p>Klik disini untuk melaporkan kejadian kecelakaan</p>
@@ -94,84 +96,30 @@
 	</div>
     <!-- Welcome End -->
 	
-    <!-- Theme Color Settings -->
-	<div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom">
-        <div class="offcanvas-body small">
-            <ul class="theme-color-settings">
-                <li>
-                    <input class="filled-in" id="primary_color_8" name="theme_color" type="radio" value="color-primary" />
-					<label for="primary_color_8"></label>
-                    <span>Default</span>
-                </li>
-                <li>
-					<input class="filled-in" id="primary_color_2" name="theme_color" type="radio" value="color-green" />
-					<label for="primary_color_2"></label>
-                    <span>Green</span>
-                </li>
-                <li>
-                    <input class="filled-in" id="primary_color_3" name="theme_color" type="radio" value="color-blue" />
-					<label for="primary_color_3"></label>
-                    <span>Blue</span>
-                </li>
-                <li>
-                    <input class="filled-in" id="primary_color_4" name="theme_color" type="radio" value="color-pink" />
-					<label for="primary_color_4"></label>
-                    <span>Pink</span>
-                </li>
-                <li>
-                    <input class="filled-in" id="primary_color_5" name="theme_color" type="radio" value="color-yellow" />
-					<label for="primary_color_5"></label>
-                    <span>Yellow</span>
-                </li>
-                <li>
-                    <input class="filled-in" id="primary_color_6" name="theme_color" type="radio" value="color-orange" />
-					<label for="primary_color_6"></label>
-                    <span>Orange</span>
-                </li>
-                <li>
-                    <input class="filled-in" id="primary_color_7" name="theme_color" type="radio" value="color-purple" />
-					<label for="primary_color_7"></label>
-                    <span>Purple</span>
-                </li>
-                <li>
-					<input class="filled-in" id="primary_color_1" name="theme_color" type="radio" value="color-red" />
-					<label for="primary_color_1"></label>
-                    <span>Red</span>
-                </li>
-                <li>
-					<input class="filled-in" id="primary_color_9" name="theme_color" type="radio" value="color-lightblue" />
-					<label for="primary_color_9"></label>
-                    <span>Lightblue</span>
-                </li>
-                <li>
-                    <input class="filled-in" id="primary_color_10" name="theme_color" type="radio" value="color-teal" />
-					<label for="primary_color_10"></label>
-                    <span>Teal</span>
-                </li>
-                <li>
-                    <input class="filled-in" id="primary_color_11" name="theme_color" type="radio" value="color-lime" />
-					<label for="primary_color_11"></label>
-                    <span>Lime</span>
-                </li>
-                <li>
-                    <input class="filled-in" id="primary_color_12" name="theme_color" type="radio" value="color-deeporange" />
-					<label for="primary_color_12"></label>
-                    <span>Deeporange</span>
-                </li>
-            </ul>
-        </div>
-    </div>
-	<!-- Theme Color Settings End -->
+	<!-- PWA Offcanvas -->
+	<div class="offcanvas offcanvas-bottom pwa-offcanvas">
+		<div class="container">
+			<div class="offcanvas-body small">
+				<img class="logo" src="/assets/images/fav-icon-jr.png" alt="">
+				<h5 class="title">Pena Mas App</h5>
+				<p class="pwa-text" style=" color: black; ">Install Pena Mas App hanya sekali klik saja</p>
+				<a href="javascrpit:void(0);" class="btn btn-sm btn-secondary pwa-btn">Install</a>
+				<a href="javascrpit:void(0);" class="btn btn-sm pwa-close light btn-danger ms-2">Nanti</a>
+			</div>
+		</div>
+	</div>
+	<div class="offcanvas-backdrop pwa-backdrop"></div>
     
 </div>
 <!--**********************************
     Scripts
 ***********************************-->
-<script src="assets/js/jquery.js"></script>
-<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/custom.js"></script>
-<script src="assets/js/settings.js"></script>
-<script src="assets/js/dz.carousel.js"></script><!-- Swiper -->
-<script src="assets/vendor/swiper/swiper-bundle.min.js"></script><!-- Swiper -->
+<script src="/assets/js/index.js" defer></script>
+<script src="/assets/js/jquery.js"></script>
+<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/js/custom.js"></script>
+<script src="/assets/js/settings.js"></script>
+<script src="/assets/js/dz.carousel.js"></script><!-- Swiper -->
+<script src="/assets/vendor/swiper/swiper-bundle.min.js"></script><!-- Swiper -->
 </body>
 </html>

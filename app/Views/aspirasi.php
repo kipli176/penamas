@@ -20,7 +20,7 @@
 	<link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png" />
     
     <!-- Title -->
-	<title>Penamas - Formulir Pengaduan</title>
+	<title>Penamas - Formulir Aspirasi</title>
     
     <!-- Stylesheets -->
     <link href="/assets/vendor/imageuplodify/imageuploadify.min.css" rel="stylesheet">
@@ -49,7 +49,7 @@
             <div class=" container">
                 <div class="dz-info">
                     <span class="location d-block">PENA MAS</span>
-                    <h5 class="title">Form Pengaduan</h5>
+                    <h5 class="title">Form Aspirasi</h5>
                 </div>
                 <div class="dz-media media-65">
                     <img src="/assets/images/fav-icon-jr.png" alt="">
@@ -68,7 +68,7 @@
                         </a>
                     </div>
                     <div class="mid-content">
-                        <h5 class="mb-0">Aduan</h5>
+                        <h5 class="mb-0">Aspirasi</h5>
                     </div>
                 </div>
             </div>
@@ -88,7 +88,7 @@
                                 </button>
                             </div>
             <?php }?> 
-            <?php echo form_open('aduan',['enctype' => 'multipart/form-data']);?>
+            <?php echo form_open('aspirasi',['enctype' => 'multipart/form-data']);?>
 				<div class="input-group">
 					<input type="text" placeholder="Judul Laporan" name="judul" value="<?php echo set_value('judul'); ?>" class="form-control">
 				</div>
@@ -159,10 +159,7 @@
 
                     </select>
 				</div>
-				
-				<div class="input-group">
-					<input type="file" name="lampiran[]" class="imageuplodify" accept="image/*,video/*" multiple>
-				</div>
+				 
         <!-- Footer -->
         <footer class="footer fixed">
             <div class="container">

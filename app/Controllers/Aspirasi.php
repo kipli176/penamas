@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Controllers;
-use App\Models\AduanModel;
+use App\Models\AspirasiModel;
 
-class Aduan extends BaseController
+class Aspirasi extends BaseController
 {
     public function __construct()
     {
@@ -13,7 +13,7 @@ class Aduan extends BaseController
     public function index()
     {
         helper(['form', 'url']);
-        $model = new AduanModel();
+        $model = new AspirasiModel();
 
 		if($this->request->getPost('submit')) {
 			$validation =  \Config\Services::validation();
@@ -25,25 +25,9 @@ class Aduan extends BaseController
 			]);
 			
 			if (!$validation->withRequest($this->request)->run()) {
-				echo view('aduan', ['errors' => $validation->getErrors()]);
+				echo view('aspirasi', ['errors' => $validation->getErrors()]);
 			} else {
-                if ($files = $this->request->getFileMultiple('lampiran')) {
-                    $errors = [];
-                    $lampiran=[];
-                    foreach ($files as $file) {
-                        if ($file->isValid() && !$file->hasMoved()) {
-                            $newName = $file->getRandomName();
-                            $file->move(WRITEPATH.'uploads', $newName);
-                            $lampiran[]=$newName;
-                        } else {
-                            array_push($errors, $file->getErrorString().'('.$file->getError().')');
-                        }
-                        $lampirane=implode(",",$lampiran);
-                    }
-    
-                    if ($errors) { 
-                        echo view('aduan', ['errors' => $errors]);
-                    }else{
+                    
                         $data=[
                             'judul'=>$this->request->getPost('judul'),
                             'isi'=>$this->request->getPost('isi'),
@@ -51,16 +35,15 @@ class Aduan extends BaseController
                             'wa'=>$this->request->getPost('wa'),
                             'tgl'=>$this->request->getPost('tgl'),
                             'lokasi'=>$this->request->getPost('lokasi'),
-                            'lampiran'=>$lampirane,
                             'date_created'=>date('Y-m-d')
                         ];
-                        $model->create_aduan($data);
-                        echo view('sukses', ['success' => 'Laporan anda telah dikirim.']); 
-                    }
-                } 
+                        $model->create_aspirasi($data);
+                        echo view('sukses', ['success' => 'Aspirasi anda telah dikirim.']); 
+                    
+                
 			}
 		} else {
-			echo view('aduan');
+			echo view('aspirasi');
 		}
     }
 

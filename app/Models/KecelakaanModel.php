@@ -4,10 +4,10 @@ namespace App\Models;
 
 use App\Libraries\MongoDb;
 
-class AduanModel {
+class KecelakaanModel {
 
 	private $database = 'penamas';
-	private $collection = 'aduan';
+	private $collection = 'kecelakaan';
 	private $conn;
 
 	function __construct() {
@@ -45,7 +45,7 @@ class AduanModel {
 		}
 	}
 
-	function create_aduan($user) {
+	function create_kecelakaan($user) {
 		try { 
 
 			$query = new \MongoDB\Driver\BulkWrite();

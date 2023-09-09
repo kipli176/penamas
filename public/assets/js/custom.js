@@ -152,7 +152,7 @@ var Jobie = function(){
     
 	// PWA Modal
 	var handlePWAModal = function (){
-		if (!window.matchMedia('(display-mode: standalone)').matches) {
+		if (!window.matchMedia('(display-mode: fullscreen)').matches) {
 		    setTimeout(function(){
     			jQuery('.pwa-offcanvas').addClass('show');
     			jQuery('.pwa-backdrop').addClass('fade show');
@@ -165,7 +165,7 @@ var Jobie = function(){
     				jQuery('.pwa-backdrop').removeClass('show');
     			}, 500);
     		}); 
-		}
+		} 
 	}
     
 	// Recent Search

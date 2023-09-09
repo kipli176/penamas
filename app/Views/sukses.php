@@ -15,7 +15,7 @@
 	<meta property="og:description" content="Jobie - Job Portal Mobile App Template ( Bootstrap 5 + PWA )" />
 	<meta property="og:image" content="https://jobie.dexignzone.com/mobile-app/xhtml/social-image.png"/>
 	<meta name="format-detection" content="telephone=no">
-    
+    <script>setTimeout(function(){window.location.href='/'},5000);</script>
     <!-- Favicons Icon -->
 	<link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png" />
     
@@ -72,7 +72,7 @@
 				</div>
 				<div class="clearfix">
 					<h2 class="title text-success">Terimakasih</h2>
-					<p>Laporan anda telah dikirim.</p>
+					<p><?php if (isset($success) && strlen($success)) {echo esc($success);}?></p>
 					<p>Dalam 3 hari, laporan Anda akan diverifikasi dan diteruskan kepada kepala kantor tujuan.</p>
 				</div>
 			</div>
