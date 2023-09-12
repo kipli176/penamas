@@ -208,7 +208,7 @@
         <div class="deznav">
             <div class="deznav-scroll">
                 <ul class="metismenu" id="menu">
-                    <li class="has-menu"><a href="widget-basic.html" class="has-arrow ai-icon" aria-expanded="false">
+                    <li class="has-menu"><a href="/admin/dashboard" class="has-arrow ai-icon" aria-expanded="false">
                             <i class="flaticon-381-networking"></i>
                             <span class="nav-text">Dashboard</span>
                         </a>
