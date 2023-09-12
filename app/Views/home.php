@@ -6,20 +6,20 @@
     <!-- Meta -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, minimal-ui, viewport-fit=cover">
-	<meta name="theme-color" content="#2196f3">
+	<meta name="theme-color" content="#48a9f8">
 	<meta name="author" content="DexignZone" /> 
     <meta name="keywords" content="" /> 
     <meta name="robots" content="" /> 
-	<meta name="description" content="Jobie - Job Portal Mobile App Template ( Bootstrap 5 + PWA )"/>
-	<meta property="og:title" content="Jobie - Job Portal Mobile App Template ( Bootstrap 5 + PWA )" />
-	<meta property="og:description" content="Jobie - Job Portal Mobile App Template ( Bootstrap 5 + PWA )" />
-	<meta property="og:image" content="https://jobie.dexignzone.com/mobile-app/xhtml/social-image.png"/>
+	<meta name="description" content="PENA MAS"/>
+	<meta property="og:title" content="PENA MAS" />
+	<meta property="og:description" content="PENA MAS" />
+	<meta property="og:image" content="/assets/images/fav-icon-jr.png"/>
 	<meta name="format-detection" content="telephone=no">
     
 	<!-- PWA Version -->
 	<link rel="manifest" href="/assets/manifest.json">
     <!-- Favicons Icon -->
-	<link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png" />
+	<link rel="shortcut icon" type="image/x-icon" sizes="16x16" href="/assets/images/fav-icon-jr.png" />
     
     <!-- Title -->
 	<title>PENA MAS</title>
@@ -85,7 +85,7 @@
 						<div class="d-flex align-items-center">
 							<img src="/assets/images/welcome/wlc-3.png" alt="">
 							<div class="ms-4">
-								<h5>Kecelakaan</h5>
+								<h5>Pelaporan Kecelakaan</h5>
 								<p>Klik disini untuk melaporkan kejadian kecelakaan</p>
 							</div>
 						</div>    

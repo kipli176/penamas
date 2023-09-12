@@ -6,18 +6,20 @@
     <!-- Meta -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, minimal-ui, viewport-fit=cover">
-	<meta name="theme-color" content="#2196f3">
+	<meta name="theme-color" content="#48a9f8">
 	<meta name="author" content="DexignZone" /> 
     <meta name="keywords" content="" /> 
     <meta name="robots" content="" /> 
-	<meta name="description" content="Jobie - Job Portal Mobile App Template ( Bootstrap 5 + PWA )"/>
-	<meta property="og:title" content="Jobie - Job Portal Mobile App Template ( Bootstrap 5 + PWA )" />
-	<meta property="og:description" content="Jobie - Job Portal Mobile App Template ( Bootstrap 5 + PWA )" />
-	<meta property="og:image" content="https://jobie.dexignzone.com/mobile-app/xhtml/social-image.png"/>
+	<meta name="description" content="PENA MAS"/>
+	<meta property="og:title" content="PENA MAS" />
+	<meta property="og:description" content="PENA MAS" />
+	<meta property="og:image" content="/assets/images/fav-icon-jr.png"/>
 	<meta name="format-detection" content="telephone=no">
     
+	<!-- PWA Version -->
+	<link rel="manifest" href="/assets/manifest.json">
     <!-- Favicons Icon -->
-	<link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png" />
+	<link rel="shortcut icon" type="image/x-icon" sizes="16x16" href="/assets/images/fav-icon-jr.png" />
     
     <!-- Title -->
 	<title>Penamas - Formulir Laporan Kecelakaan</title>
@@ -88,7 +90,7 @@
                                 </button>
                             </div>
             <?php }?> 
-            <?php echo form_open('kecelakaan',['enctype' => 'multipart/form-data']);?>
+            <?php echo form_open('kecelakaan/add',['enctype' => 'multipart/form-data']);?>
 				<div class="input-group">
 					<input type="text" placeholder="Nama Pelapor" name="pelapor" value="<?php echo set_value('pelapor'); ?>" class="form-control">
 				</div>
@@ -103,13 +105,82 @@
 				</div> 
 				<div class="input-group">
                     <select class="form-control js-example-basic-singles" name="rs"> 
-                        <option>--Dirawat di--</option>
-                        <option value="RS">RUMAH SAKIT</option> 
+                        <option>-- Dirawat di --</option>
+                        <option value='RS UMUM PAYANGAN'>RS UMUM PAYANGAN</option>
+                        <option value='RS BALIMED BULELENG'>RS BALIMED BULELENG</option>
+                        <option value='RS KHUSUS MATA RAMATA'>RS KHUSUS MATA RAMATA</option>
+                        <option value='RS IBU DAN ANAK CAHAYA BUNDA'>RS IBU DAN ANAK CAHAYA BUNDA</option>
+                        <option value='RS UNIVERSITAS UDAYANA'>RS UNIVERSITAS UDAYANA</option>
+                        <option value='RS PRATAMA KUBU'>RS PRATAMA KUBU</option>
+                        <option value='RSU DAERAH GEMA SANTI NUSA PENIDA'>RSU DAERAH GEMA SANTI NUSA PENIDA</option>
+                        <option value='RS BALI JIMBARAN'>RS BALI JIMBARAN</option>
+                        <option value='RS UMUM DAERAH BALI MANDARA PROVINSI BALI'>RS UMUM DAERAH BALI MANDARA PROVINSI BALI</option>
+                        <option value='RS UMUM DAERAH TANGGUWISIA'>RS UMUM DAERAH TANGGUWISIA</option>
+                        <option value='RS UMUM SEMARA RATIH'>RS UMUM SEMARA RATIH</option>
+                        <option value='RS UMUM BALI HOLISTIK'>RS UMUM BALI HOLISTIK</option>
+                        <option value='RS UMUM BALIMED NEGARA'>RS UMUM BALIMED NEGARA</option>
+                        <option value='RS WINGS NYITDAH'>RS WINGS NYITDAH</option>
+                        <option value='RS UMUM KASIH IBU SABA'>RS UMUM KASIH IBU SABA</option>
+                        <option value='RS KHUSUS IBU DAN ANAK PUCUK PERMATA HATI'>RS KHUSUS IBU DAN ANAK PUCUK PERMATA HATI</option>
+                        <option value='RS PRATAMA GIRI EMAS'>RS PRATAMA GIRI EMAS</option>
+                        <option value='RS UMUM BALIMED KARANGASEM'>RS UMUM BALIMED KARANGASEM</option>
+                        <option value='RS UMUM SURYA HUSADHA NUSA DUA'>RS UMUM SURYA HUSADHA NUSA DUA</option>
+                        <option value='RS UMUM FAMILI HUSADA'>RS UMUM FAMILI HUSADA</option>
+                        <option value='RS UMUM KASIH IBU TABANAN'>RS UMUM KASIH IBU TABANAN</option>
+                        <option value='RS UMUM SILOAM BALI'>RS UMUM SILOAM BALI</option>
+                        <option value='RS KHUSUS BEDAH BIMC NUSA DUA'>RS KHUSUS BEDAH BIMC NUSA DUA</option>
+                        <option value='RS UMUM BANGLI MEDIKA CANTI'>RS UMUM BANGLI MEDIKA CANTI</option>
+                        <option value='RS UMUM ARI CANTI'>RS UMUM ARI CANTI</option>
+                        <option value='RS UMUM SURYA HUSADA UBUNG'>RS UMUM SURYA HUSADA UBUNG</option>
+                        <option value='RS UMUM KASIH IBU KEDONGANAN'>RS UMUM KASIH IBU KEDONGANAN</option>
+                        <option value='RS UMUM WISMA PRASHANTI'>RS UMUM WISMA PRASHANTI</option>
+                        <option value='RS BHAYANGKARA DENPASAR'>RS BHAYANGKARA DENPASAR</option>
+                        <option value='RS UMUM BUNDA'>RS UMUM BUNDA</option>
+                        <option value='RS UMUM BINTANG'>RS UMUM BINTANG</option>
+                        <option value='RS UMUM PERMATA HATI'>RS UMUM PERMATA HATI</option>
+                        <option value='RS UMUM GANESHA'>RS UMUM GANESHA</option>
+                        <option value='RS UMUM BALI ROYAL'>RS UMUM BALI ROYAL</option>
+                        <option value='RS UMUM SHANTI GRAHA'>RS UMUM SHANTI GRAHA</option>
+                        <option value='RS UMUM PARAMA SIDHI'>RS UMUM PARAMA SIDHI</option>
+                        <option value='RS DAERAH MANGUSADA'>RS DAERAH MANGUSADA</option>
+                        <option value='RS UMUM BHAKTI RAHAYU TABANAN'>RS UMUM BHAKTI RAHAYU TABANAN</option>
+                        <option value='RS UMUM PREMAGANA'>RS UMUM PREMAGANA</option>
+                        <option value='RS IBU DAN ANAK PURI BUNDA'>RS IBU DAN ANAK PURI BUNDA</option>
+                        <option value='RS UMUM BALIMED'>RS UMUM BALIMED</option>
+                        <option value='RS UMUM PRIMA MEDIKA'>RS UMUM PRIMA MEDIKA</option>
+                        <option value='RS GIGI DAN MULUT SARASWATI DENPASAR'>RS GIGI DAN MULUT SARASWATI DENPASAR</option>
+                        <option value='RS UMUM GRAHA ASIH'>RS UMUM GRAHA ASIH</option>
+                        <option value='RS IBU DAN ANAK HARAPAN BUNDA'>RS IBU DAN ANAK HARAPAN BUNDA</option>
+                        <option value='RS UMUM BHAKTI RAHAYU'>RS UMUM BHAKTI RAHAYU</option>
+                        <option value='RS UMUM PURI RAHARJA'>RS UMUM PURI RAHARJA</option>
+                        <option value='RS UMUM DHARMA YADNYA'>RS UMUM DHARMA YADNYA</option>
+                        <option value='RS UMUM KASIH IBU'>RS UMUM KASIH IBU</option>
+                        <option value='RS UMUM SURYA HUSADHA'>RS UMUM SURYA HUSADHA</option>
+                        <option value='RS KHUSUS MATA BALI MANDARA'>RS KHUSUS MATA BALI MANDARA</option>
+                        <option value='RS UMUM MANUABA'>RS UMUM MANUABA</option>
+                        <option value='RS TK. II UDAYANA'>RS TK. II UDAYANA</option>
+                        <option value='RS UMUM DAERAH WANGAYA'>RS UMUM DAERAH WANGAYA</option>
+                        <option value='RSUP SANGLAH'>RSUP SANGLAH</option>
+                        <option value='RS UMUM KARYA DHARMA HUSADA'>RS UMUM KARYA DHARMA HUSADA</option>
+                        <option value='RS UMUM KERTHA USADHA'>RS UMUM KERTHA USADHA</option>
+                        <option value='RS TK. IV SINGARAJA'>RS TK. IV SINGARAJA</option>
+                        <option value='RS UMUM DAERAH KAB. BULELENG'>RS UMUM DAERAH KAB. BULELENG</option>
+                        <option value='RS UMUM DAERAH KARANGASEM'>RS UMUM DAERAH KARANGASEM</option>
+                        <option value='RS JIWA PROVINSI BALI'>RS JIWA PROVINSI BALI</option>
+                        <option value='RS UMUM DAERAH KABUPATEN BANGLI'>RS UMUM DAERAH KABUPATEN BANGLI</option>
+                        <option value='RS UMUM DAERAH KLUNGKUNG'>RS UMUM DAERAH KLUNGKUNG</option>
+                        <option value='RS UMUM DAERAH SANJIWANI GIANYAR'>RS UMUM DAERAH SANJIWANI GIANYAR</option>
+                        <option value='RS KHUSUS BEDAH BIMC'>RS KHUSUS BEDAH BIMC</option>
+                        <option value='RS UMUM DHARMA KERTI'>RS UMUM DHARMA KERTI</option>
+                        <option value='RS UMUM DAERAH TABANAN'>RS UMUM DAERAH TABANAN</option>
+                        <option value='RS UMUM KERTAYASA'>RS UMUM KERTAYASA</option>
+                        <option value='RS UMUM DAERAH NEGARA'>RS UMUM DAERAH NEGARA</option>
+
                     </select>
 				</div>
 				<div class="input-group">
                     <select class="form-control js-example-basic-singles" name="jenis"> 
-                        <option>--Jenis Kecelakaan--</option>
+                        <option>-- Jenis Kecelakaan --</option>
                         <option value="KECELAKAAN 2 KENDARAAN">KECELAKAAN 2 KENDARAAN</option> 
                         <option value="TABRAK LARI">TABRAK LARI</option> 
                         <option value="TABRAK PEJALAN KAKI/SEPEDA">TABRAK PEJALAN KAKI/SEPEDA</option> 

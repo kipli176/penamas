@@ -1,0 +1,19 @@
+{
+"theme_color": "#48a9f8",
+"orientation": "portrait-primary",
+"background_color": "#48a9f8",
+"description": "Pena Mas - Aplikasi Pelayanan Masyarakat.",
+"display": "fullscreen",
+"icons": [
+  {
+    "src": "/assets/images/logo.png",
+    "sizes": "200x200",
+    "type": "image/png"
+  }
+],
+"name": "ADMIN PENA MAS",
+"short_name": "ADMIN PENA MAS",
+"start_url": "/admin",
+"id": "/admin",
+"display_override": ["window-controls-overlay"]
+}

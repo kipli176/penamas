@@ -1,4 +1,6 @@
 {
+"theme_color": "#48a9f8",
+"orientation": "portrait-primary",
 "background_color": "#48a9f8",
 "description": "Pena Mas - Aplikasi Pelayanan Masyarakat.",
 "display": "fullscreen",
@@ -11,5 +13,7 @@
 ],
 "name": "PENA MAS",
 "short_name": "PENA MAS",
-"start_url": "/"
+"start_url": "/",
+"id": "/",
+"display_override": ["window-controls-overlay"]
 }
