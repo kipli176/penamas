@@ -288,12 +288,12 @@
 														<?='Baru';?>
 													</span><?php }elseif($item->status==1){?>
                                                     <span class="badge light badge-success">
-														<i class="fa fa-circle text-success me-1"></i>
+														<i class="fa fa-play text-success me-1"></i>
 														<?='Diproses';?>  
                                                     </span>  
                                                         <?php }else{?>
                                                     <span class="badge dark badge-primary">
-														<i class="fa fa-circle text-primary me-1"></i>
+														<i class="fa fa-check text-primary me-1"></i>
 														<?='Selesai';?>  
                                                     </span>  
                                                         <?php }?>
