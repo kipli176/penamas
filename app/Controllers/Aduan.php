@@ -67,12 +67,13 @@ class Aduan extends BaseController
     { 
 			
         $rules = [
-            'judul' => ['label' => 'Judul', 'rules' => 'required|min_length[3]|max_length[250]'],
-            'isi'   => ['label' => 'Isi', 'rules' => 'required|min_length[3]|max_length[1000]'],
-            'nama'  => ['label' => 'Nama', 'rules' => 'required|min_length[3]|max_length[100]'],
-            'wa'    => ['label' => 'No WA', 'rules' => 'required|min_length[3]|max_length[13]'],
-            'tgl'   => ['label' => 'Tanggal Kejadian', 'rules' => 'required|min_length[3]|max_length[250]'],
-            'lokasi'=> ['label' => 'Lokasi', 'rules' => 'required|min_length[3]|max_length[250]']
+            'judul' => ['label' => 'Judul', 'rules' => 'required|min_length[3]|max_length[250]','errors' => ['required' => 'Judul harus diisi']],
+            'isi'   => ['label' => 'Isi', 'rules' => 'required|min_length[3]|max_length[1000]','errors' => ['required' => 'Isi harus diisi']],
+            'nama'  => ['label' => 'Nama', 'rules' => 'required|min_length[3]|max_length[100]','errors' => ['required' => 'Nama harus diisi']],
+            'wa'    => ['label' => 'No WA', 'rules' => 'required|min_length[3]|max_length[13]','errors' => ['required' => 'No WA harus diisi']],
+            'tgl'   => ['label' => 'Tanggal Kejadian', 'rules' => 'required|min_length[3]|max_length[250]','errors' => ['required' => 'Tanggal Kejadian harus diisi']],
+            'lokasi'=> ['label' => 'Lokasi', 'rules' => 'required|min_length[3]|max_length[250]','errors' => ['required' => 'Lokasi harus diisi']],
+            'lampiran' => 'uploaded[lampiran]|max_size[lampiran,5500]',
         ];
 
         if($this->validate($rules)){ 
@@ -105,6 +106,11 @@ class Aduan extends BaseController
                         'date_created'=>date('Y-m-d')
                     ];
                     $simpan=saveData('aduan',$data);
+                    kirimPesan($this->request->getPost('wa'),'Terimakasih *'.$this->request->getPost('nama').'*. 
+                    Pengaduan anda akan segera kami proses. Kami akan menghubungi anda selalu. 
+                    Salam PENA MAS');
+                   
+
                     echo view('sukses', ['success' => 'Laporan anda telah dikirim.']); 
                 }
             }  

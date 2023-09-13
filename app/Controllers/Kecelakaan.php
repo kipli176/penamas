@@ -79,6 +79,7 @@ class Kecelakaan extends BaseController
             'tgl'   => ['label' => 'Tanggal Kejadian', 'rules' => 'required|min_length[3]|max_length[250]'],
             'lokasi'=> ['label' => 'Lokasi', 'rules' => 'required|min_length[3]|max_length[250]'],
             'jenis'  => ['label' => 'Jenis Kecelakaan', 'rules' => 'required|min_length[3]|max_length[250]'],
+            'lampiran' => 'uploaded[lampiran]|max_size[lampiran,5500]',
         ];
 
         if($this->validate($rules)){ 
@@ -114,6 +115,9 @@ class Kecelakaan extends BaseController
                         'date_created'=>date('Y-m-d')
                     ];
                     $simpan=saveData('kecelakaan',$data);
+                    kirimPesan($this->request->getPost('wa'),'Terimakasih *'.$this->request->getPost('pelapor').'*. 
+                    Laporan kecelakaan yang anda berikan akan segera kami proses. Kami akan menghubungi anda selalu. 
+                    Salam PENA MAS');
                     echo view('sukses', ['success' => 'Laporan anda telah dikirim.']); 
                 }
             }  

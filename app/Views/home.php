@@ -22,7 +22,7 @@
 	<link rel="shortcut icon" type="image/x-icon" sizes="16x16" href="/assets/images/fav-icon-jr.png" />
     
     <!-- Title -->
-	<title>PENA MAS</title>
+	<title>PENA MAS - PENGADUAN ASPIRASI MASYARAKAT</title>
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="/assets/vendor/swiper/swiper-bundle.min.css">
@@ -54,7 +54,7 @@
                 <img src="/assets/images/fav-icon-jr.png">
 					<div class="get-started">
 						<h1 class="dz-title" style="color: white;">PENA MAS</h1>
-						<!-- <p>Pengaduan Masyarakat</p> -->
+						<p>(PENGADUAN ASPIRASI MASYARAKAT)</p>
 					</div>
 				</div>
 				<div class="join-area">

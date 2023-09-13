@@ -175,3 +175,21 @@ function deleteBook($id)
         show_error('Error while deleting a book with ID: '.$id.$ex->getMessage(), 500);
     }
 } 
+
+function kirimPesan($a,$b){
+    
+    $curl = curl_init();
+    curl_setopt_array($curl, array(
+    CURLOPT_URL => 'http://185.205.244.115:3333/message/text?key=e492044d-659e-43ba-810a-17abbfc020a0',
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => '',
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 0,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => 'POST',
+    CURLOPT_POSTFIELDS => 'id=62'.substr($a, 1).'&message='.$b,
+    ));
+    $response = curl_exec($curl);
+    curl_close($curl);
+}

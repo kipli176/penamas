@@ -37,7 +37,9 @@ class Aspirasi extends BaseController
                         'status'=>0,
                         'date_created'=>date('Y-m-d')
                     ];
-                    $simpan=saveData('aspirasi',$data);
+                    $simpan=saveData('aspirasi',$data);kirimPesan($this->request->getPost('wa'),'Terimakasih *'.$this->request->getPost('nama').'*. 
+                    Aspirasi anda akan segera kami proses. Kami akan menghubungi anda selalu. 
+                    Salam PENA MAS');
                     echo view('sukses', ['success' => 'Aspirasi anda telah dikirim.']); 
         }else{ 
             $data['errors'] = $this->validator->getErrors();
