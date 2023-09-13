@@ -286,10 +286,15 @@
 													<span class="badge light badge-warning">
 														<i class="fa fa-circle text-warning me-1"></i>
 														<?='Baru';?>
-													</span><?php }else{?>
+													</span><?php }elseif($item->status==1){?>
                                                     <span class="badge light badge-success">
 														<i class="fa fa-circle text-success me-1"></i>
 														<?='Diproses';?>  
+                                                    </span>  
+                                                        <?php }else{?>
+                                                    <span class="badge dark badge-primary">
+														<i class="fa fa-circle text-primary me-1"></i>
+														<?='Selesai';?>  
                                                     </span>  
                                                         <?php }?>
 												</td>
@@ -300,7 +305,7 @@
 														</div>
 														<div class="dropdown-menu dropdown-menu-end"> 
 															<a class="dropdown-item" href="/admin/aduan/detail/<?=$item->_id;?>">Lihat Detail</a>
-															<a class="dropdown-item" href="/admin/aduan/notif/<?=$item->wa;?>">Kirim Notifikasi</a> 
+															<!-- <a class="dropdown-item" href="/admin/aduan/notif/<?=$item->wa;?>">Kirim Notifikasi</a>  -->
 														</div>
 													</div>
 												</td>

@@ -34,6 +34,7 @@
                                         <img src="/assets/images/fav-icon-jr.png" width="30%">
 									</div>
                                     <h1 class="text-center mb-4 text-white">PENA MAS</h1>
+						<p>(PENGADUAN ASPIRASI MASYARAKAT)</p>
                                     <?php
                                         helper('form');
 

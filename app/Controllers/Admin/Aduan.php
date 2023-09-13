@@ -22,9 +22,40 @@ class Aduan extends BaseController
         // echo "Welcome back, ".$session->get('user_name');
         $data['judul']='Detail Aduan';
         $data['username']=$session->get('user_name');
+        $data['link']='aduan';
         $data['detail']=getId('aduan',$id);
         // $data['aduan']=getAll('aduan');
         return view('admin/view',$data);
+    }
+    public function proses($id)
+    {       
+        helper(['mongo']);
+        $session = session(); 
+        prosesId('aduan',$id); 
+        $get=getId('aduan',$id);
+        kirimPesan($get->wa,'Terimakasih *'.$get->nama.'*. 
+Laporan anda sudah kami terima dan sedang dalam proses review. 
+Kami akan menghubungi anda lagi maksimal 3x24jam.
+Salam, Jasa Raharja');
+        return redirect()->to('/admin/aduan');
+    }
+    public function selesai($id)
+    {       
+        helper(['mongo']);
+        $session = session();
+        $pesane=$this->request->getPost('pesan');
+        // echo "Welcome back, ".$session->get('user_name');
+        $data['judul']='Detail Aduan';
+        $data['username']=$session->get('user_name');
+        $data['link']='aduan';
+        $data['detail']=prosesId('aduan',$id);
+        selesaiId('aduan',$id); 
+        $get=getId('aduan',$id);
+        // $data['aduan']=getAll('aduan');
+        kirimPesan($get->wa,'Terimakasih *'.$get->nama.'*. 
+'.$pesane.'
+Salam, Jasa Raharja');
+        return redirect()->to('/admin/aduan');
     }
     public function hapus($id)
     {        

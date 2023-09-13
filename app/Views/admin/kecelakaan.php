@@ -290,10 +290,15 @@
 													<span class="badge light badge-warning">
 														<i class="fa fa-circle text-warning me-1"></i>
 														<?='Baru';?>
-													</span><?php }else{?>
+													</span><?php }elseif($item->status==1){?>
                                                     <span class="badge light badge-success">
 														<i class="fa fa-circle text-success me-1"></i>
 														<?='Diproses';?>  
+                                                    </span>  
+                                                        <?php }else{?>
+                                                    <span class="badge dark badge-primary">
+														<i class="fa fa-circle text-primary me-1"></i>
+														<?='Selesai';?>  
                                                     </span>  
                                                         <?php }?>
 												</td>

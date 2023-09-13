@@ -59,7 +59,7 @@ function getAll($a, $limit = 100)
     $database = $connection->getDatabase();
     $collection = $database->$a;
     try {
-        $cursor = $collection->find([], ['limit' => $limit]);
+        $cursor = $collection->find([], ['limit' => $limit,'sort' => ['_id' => -1]]);
         $books = $cursor->toArray();
 
         return $books;
@@ -85,6 +85,58 @@ function deleteId($a,$b)
         show_error('Error while deleting a book with ID: '.$id.$ex->getMessage(), 500);
     }
 } 
+
+function prosesId($a,$b)
+{
+    $connection = new Db();
+    $database = $connection->getDatabase();
+    $collection = $database->$a;
+    try {
+        $result = $collection->updateOne(
+            ['_id' => new \MongoDB\BSON\ObjectId($b)],
+            ['$set' => [
+                'status' => 1, 
+            ]]
+        );
+
+        if ($result->getModifiedCount()) {
+            return true;
+        }
+
+        return false;
+    } catch (\MongoDB\Exception\RuntimeException $ex) {
+        show_error('Error while updating a book with ID: '.$id.$ex->getMessage(), 500);
+    }
+}
+
+function selesaiId($a,$b)
+{
+    $connection = new Db();
+    $database = $connection->getDatabase();
+    $collection = $database->$a;
+    try {
+        $result = $collection->updateOne(
+            ['_id' => new \MongoDB\BSON\ObjectId($b)],
+            ['$set' => [
+                'status' => 2, 
+            ]]
+        );
+
+        if ($result->getModifiedCount()) {
+            return true;
+        }
+
+        return false;
+    } catch (\MongoDB\Exception\RuntimeException $ex) {
+        show_error('Error while updating a book with ID: '.$id.$ex->getMessage(), 500);
+    }
+}
+
+
+
+
+
+
 
 
 

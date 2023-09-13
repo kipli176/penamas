@@ -26,6 +26,7 @@
     
     <!-- Stylesheets -->
     <link href="/assets/vendor/imageuplodify/imageuploadify.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="/admine/vendor/select2/css/select2.min.css">
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
     
     <!-- Google Fonts -->
@@ -95,7 +96,7 @@
 					<input type="text" placeholder="Judul Laporan" name="judul" value="<?php echo set_value('judul'); ?>" class="form-control">
 				</div>
 				<div class="input-group">
-                    <textarea class="form-control" name="isi" placeholder="Isi Laporan"><?php echo set_value('isi'); ?></textarea>
+                    <textarea class="form-control" name="isi" rows="4" placeholder="Isi Laporan"><?php echo set_value('isi'); ?></textarea>
 				</div>
 				<div class="input-group">
 					<input type="text" placeholder="Nama Pelapor" name="nama" class="form-control" value="<?php echo set_value('nama'); ?>">
@@ -107,8 +108,8 @@
                     <input type="text" id="tgle" placeholder="Tgl Kejadian" name="tgl" class="form-control" value="<?php echo set_value('tgl'); ?>">
 				</div> 
 				<div class="input-group">
-                    <select class="form-control js-example-basic-singles" name="lokasi"> 
-                        <option>--Lokasi Kantor--</option>
+                    <select class="form-control dropdown-groups" name="lokasi"> 
+                        <option></option>
                         <option value="KANTOR CABANG BALI">KANTOR CABANG BALI</option>
                             <option value="KANTOR PERWAKILAN SINGARAJA">KANTOR PERWAKILAN SINGARAJA</option>
                             <option value="KANTOR PELAYANAN JASA RAHARJA GIANYAR">KANTOR PELAYANAN JASA RAHARJA GIANYAR</option>
@@ -188,16 +189,23 @@
 <script src="/assets/js/settings.js"></script>
 <script src="/assets/js/custom.js"></script>
 <script src="/assets/vendor/imageuplodify/imageuploadify.min.js"></script> 
+<script src="/admine/vendor/select2/js/select2.full.min.js"></script> 
 <script>
- 
+    $(document).on('select2:open', () => {
+        document.querySelector('.select2-search__field').focus();
+    }); 
 	$(document).ready(function() {
-        
-		$('input[type="file"]').imageuploadify();
-        var dtt = document.getElementById('tgle')
-  dtt.onfocus = function (event) {
-      this.type = 'date';
-      this.focus();
-  }
+        $('.dropdown-groups').select2({
+        placeholder: "Pilih Kantor",
+        allowClear: true
+        });
+            
+        $('input[type="file"]').imageuploadify();
+            var dtt = document.getElementById('tgle')
+            dtt.onfocus = function (event) {
+            this.type = 'date';
+            this.focus();
+        }
 	})
 </script>
 </body>

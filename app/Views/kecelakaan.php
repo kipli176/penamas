@@ -26,6 +26,7 @@
     
     <!-- Stylesheets -->
     <link href="/assets/vendor/imageuplodify/imageuploadify.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="/admine/vendor/select2/css/select2.min.css">
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
     
     <!-- Google Fonts -->
@@ -104,8 +105,9 @@
                     <input type="text" id="tgle" placeholder="Tgl & Waktu Kejadian" name="tgl" class="form-control" value="<?php echo set_value('tgl'); ?>">
 				</div> 
 				<div class="input-group">
-                    <select class="form-control js-example-basic-singles" name="rs"> 
-                        <option>-- Dirawat di --</option>
+                    <select class="form-control  dropdown-groups" name="rs"> 
+                    <option></option>
+                        <option value='Lainnya'>Lainnya</option>
                         <optgroup label='DENPASAR'>
                         <option value='RSUP SANGLAH KOTA DENPASAR'>RSUP SANGLAH KOTA DENPASAR</option>
                         <option value='RSUD WANGAYA KOTA DENPASAR'>RSUD WANGAYA KOTA DENPASAR</option>
@@ -189,6 +191,9 @@
                     </select>
 				</div>
 				<div class="input-group">
+					<input type="text" id="rs" placeholder="Masukan nama rumah sakit" name="rs" class="form-control" >
+				</div>
+				<div class="input-group">
                     <select class="form-control js-example-basic-singles" name="jenis"> 
                         <option>-- Jenis Kecelakaan --</option>
                         <option value="KECELAKAAN 2 KENDARAAN">KECELAKAAN 2 KENDARAAN</option> 
@@ -201,7 +206,7 @@
                     </select>
 				</div>
 				<div class="input-group">
-                    <textarea class="form-control" name="lokasi" placeholder="Lokasi Kecelakaan"><?php echo set_value('lokasi'); ?></textarea>
+                    <textarea class="form-control" rows="4" name="lokasi" placeholder="Lokasi Kecelakaan"><?php echo set_value('lokasi'); ?></textarea>
 				</div> 
 				<div class="form-group">
                 <label for="inputAddress" class="border-bottom w-100 pb-1 mb-3">Google Map - <i class="text-xs">Optional</i></label>
@@ -243,16 +248,33 @@
 <script src="/assets/js/custom.js"></script>
 <script src="/assets/vendor/imageuplodify/imageuploadify.min.js"></script> 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdu9gXgc3X1zN0ENhSb6fh4me9aEslKHI&libraries=&v=weekly" defer></script>
+<script src="/admine/vendor/select2/js/select2.full.min.js"></script> 
 <script>
- 
+    
+    $(document).on('select2:open', () => {
+        document.querySelector('.select2-search__field').focus();
+    }); 
 	$(document).ready(function() {
-        
-		$('input[type="file"]').imageuploadify();
-        var dtt = document.getElementById('tgle')
-  dtt.onfocus = function (event) {
-      this.type = 'datetime-local';
-      this.focus();
-  }
+        $("#rs").hide();
+        $(".dropdown-groups").on("change", function() {
+            if ($(this).val() === "Lainnya") {
+                $("#rs").show();
+            }
+            else {
+                $("#rs").hide();
+            }
+        });
+        $('.dropdown-groups').select2({
+        placeholder: "Pilih Rumah Sakit",
+        allowClear: true
+        });
+            
+        $('input[type="file"]').imageuploadify();
+            var dtt = document.getElementById('tgle')
+            dtt.onfocus = function (event) {
+            this.type = 'datetime-local';
+            this.focus();
+        } 
         // Google Map Tambah Pelanggan
         
         initMapTambahPelanggan();
@@ -265,7 +287,7 @@
         const image = "https://my.radboox.com/public/upload/files/marker.png";
         var lat = -2.548926;
         var lng = 118.0148634;
-        var zoom = 5;
+        var zoom = 18;
         var centerOfMap = new google.maps.LatLng(lat, lng);
         var options = {
             center: centerOfMap,
@@ -359,7 +381,7 @@
             navigator.geolocation.getCurrentPosition(function (e) {
                 var nlat = e.coords.latitude;
                 var nlng = e.coords.longitude;
-                zoom = 15;
+                zoom = 18;
                 var newCenterOfMap = new google.maps.LatLng(nlat, nlng);
                 mapTambahPelanggan.setCenter(newCenterOfMap)
                 mapTambahPelanggan.setZoom(zoom)

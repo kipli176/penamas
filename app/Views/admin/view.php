@@ -304,7 +304,7 @@
                                     </div>
                                 </div>
                                 <div class="read-content-body">
-                                    <h5 class="mb-4">Halo Pena Mas,</h5>
+                                    <h5 class="mb-4">Halo Jasa Raharja,</h5>
                                     <p class="mb-2"><?=$detail->isi;?></p>
                                     <h5 class="pt-3">Salam</h5>
                                     <p><?=$detail->nama;?></p>
@@ -322,22 +322,27 @@
                                         <?php foreach($lampirane as $iteme){?>
                                             <a href="/resources/<?=$iteme;?>"
                                                 data-exthumbimage="/resources/<?=$iteme;?>"
-                                                data-src="/resources/<?=$iteme;?>" class="text-muted"><?=$iteme;?> </a> |
+                                                data-src="/resources/<?=$iteme;?>" class="text-muted"><img src="/resources/<?=$iteme;?>" alt="" class="w-25" /> </a> |
                                         <?php }?>
                                         </div>
                                     </div>
                                 </div>
                                 <?php }?>
-                                <hr>
-                                <div class="mb-3 pt-3">
-                                    <!-- <textarea name="write-email" id="write-email" cols="30" rows="5" class="form-control" placeholder="It's really an amazing.I want to know more about it..!"></textarea> -->
+
+                                <?php if($detail->status==1){?>                                
+                                    <div class="mb-3 pt-3">
+                                <form action="/admin/<?=$link;?>/selesai/<?=$detail->_id;?>" method="post">
+                                    <textarea name="pesan" id="write-email" cols="30" rows="5" class="form-control" placeholder="Kirim pesan wa ke user"></textarea>
                                 </div>
+                                    <div class="text-end">
+                                    <button class="btn btn-success " type="submit">Selesaikan</button>
+                                    </div>
+                                </form>
+                                    <?php }?>
                             </div>
                             <div class="text-end">
                                 <?php if($detail->status==0){?>
-                                <a href="#" class="btn btn-primary " type="button">Proses</a>
-                                <?php }else{?>
-                                <a href="#" class="btn btn-success " type="button">Selesaikan</a>
+                                <a href="/admin/<?=$link;?>/proses/<?=$detail->_id;?>" class="btn btn-primary " type="button">Proses</a>
                                 <?php }?>
                             </div>
                         </div>
