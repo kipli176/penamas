@@ -100,14 +100,16 @@ class Aduan extends BaseController
                         'nama'=>$this->request->getPost('nama'),
                         'wa'=>$this->request->getPost('wa'),
                         'tgl'=>$this->request->getPost('tgl'),
+                        'nomor'=>$this->request->getPost('nomor'),
                         'lokasi'=>$this->request->getPost('lokasi'),
                         'lampiran'=>$lampirane,
                         'status'=>0,
                         'date_created'=>date('Y-m-d')
                     ];
                     $simpan=saveData('aduan',$data);
-                    kirimPesan($this->request->getPost('wa'),'Terima Kasih Bapak/Ibu *'.$this->request->getPost('nama').'*. 
-Laporan anda sudah kami terima. Kami akan segera menghubungi anda kembali.
+                    kirimPesan($this->request->getPost('wa'),'Terimakasih Bapak/Ibu *'.$this->request->getPost('nama').'*
+Laporan anda nomor *'.$this->request->getPost('nomor').'*sudah kami terima dan sedang kami proses. 
+Kami akan segera menghubungi anda kembali dalam waktu maksimal 1x24 jam".
 Salam, Jasa Raharja');
                    
 

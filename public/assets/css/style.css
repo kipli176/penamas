@@ -13952,7 +13952,8 @@ button {
   background-color: #48a9f8;
   padding-top: 20px;
   padding-bottom: 50px;
-  margin-bottom: -30px; }
+  margin-bottom: -30px;  
+  background-image: url(/assets/images/bg.png);}
   .head-details .container {
     display: flex;
     align-items: center;

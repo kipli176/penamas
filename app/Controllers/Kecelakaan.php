@@ -110,13 +110,15 @@ class Kecelakaan extends BaseController
                         'rs'=>$this->request->getPost('rs'),
                         'inputLat'=>$this->request->getPost('inputLat'),
                         'inputLng'=>$this->request->getPost('inputLng'),
+                        'nomor'=>$this->request->getPost('nomor'),
                         'lampiran'=>$lampirane,
                         'status'=>0,
                         'date_created'=>date('Y-m-d')
                     ];
                     $simpan=saveData('kecelakaan',$data);
-                    kirimPesan($this->request->getPost('wa'),'Terima Kasih Bapak/Ibu *'.$this->request->getPost('pelapor').'*. 
-Laporan anda sudah kami terima. Kami akan segera menghubungi anda kembali.
+                    kirimPesan($this->request->getPost('wa'),'Terimakasih Bapak/Ibu *'.$this->request->getPost('pelapor').'*
+Laporan anda nomor *'.$this->request->getPost('nomor').'*sudah kami terima dan sedang kami proses. 
+Kami akan segera menghubungi anda kembali dalam waktu maksimal 1x24 jam".
 Salam, Jasa Raharja');
                     echo view('sukses', ['success' => 'Laporan anda telah dikirim.']); 
                 }

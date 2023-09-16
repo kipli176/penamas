@@ -35,7 +35,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Racing+Sans+One&display=swap" rel="stylesheet">
 
 </head>   
-<body>
+<body style=" background-image: url(/assets/images/1.png); ">
 <div class="page-wraper">
     
     <!-- Preloader -->
@@ -167,10 +167,44 @@
                 <!-- <label for="inputAddress" class="border-bottom w-100 pb-1 mb-3"><i class="text-xs">max 5mb</i></label> -->
 					<input type="file" name="lampiran[]" class="imageuplodify" accept="image/*,video/*" multiple>
 				</div>
+                <div class="form-check">
+                                                <input class="form-check-input" id="check" type="checkbox" name="setuju">
+                                                <label class="form-check-label">Saya Setuju dengan <a href="#"  data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Kebijakan Privasi</a></label>
+                                            </div>
+				 
+                <!-- Modal -->
+                                    <div class="modal fade" id="exampleModalCenter">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">PERLINDUNGAN PELAPOR</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal">
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">  
+<ol>
+	<li>1. Perusahaan memiliki komitmen yang jelas dan tidak memihak untuk mendukung dan melindungi semua pelapor yang menginformasikan kejadian pelanggaran yang terjadi di perusahaaan. Pelapor mendapatkan perlindungan antara lain :&nbsp;<br />
+	<br />
+	a. Identitas pelapor dijamin kerahasiannya oleh perusahaan.&nbsp;<br />
+	b. Perusahaan menjamin perlindungan terhadap Pelapor dari segala bentuk ancaman, intimidasi, ataupun tindakan tidak menyenangkan dari pihak manapun selama pelapor menjaga kerahasiaan pelanggaran yang diadukan kepada pihak manapun.&nbsp;<br />
+	c. Perlindungan terhadap pelapor juga berlaku bagi para pihak yang melaksanakan investigasi maupun pihak-pihak yang memberikan informasi terkait dengan pengaduan/penyingkapan tersebut.&nbsp;<br />
+	&nbsp;</li>
+	<li>2. Perlindungan dan jaminan kerahasiaan tidak diberikan kepada Pelapor yang terbukti melakukan pelaporan palsu dan/atau fitnah. Apabila hasil investigasi menyimpulkan dan dapat dibuktikan bahwa pelaporan yang disampaikan mengandung laporan palsu, fitnah, tanpa dasar yang jelas, maka pelapor dapat digugat balik atau dikenai sanksi sesuai dengan peraturan perundang-undangan atau peraturan internal perusahaan.<br />
+	&nbsp;</li>
+	<li>3. Jika laporan yang disampaikan tidak terbukti, maka pengelola sistem pelaporan pelanggaran akan mengenakan sanksi kepada pelapor.</li>
+</ol>
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Tutup</button> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
         <!-- Footer -->
         <footer class="footer fixed">
             <div class="container">
-                <input type="submit" class="btn btn-primary w-100 btn-rounded" name="submit" value="Kirim">
+                <input type="submit" id="btncheck" class="btn btn-primary w-100 btn-rounded" name="submit" value="Kirim">
             </div>
         </footer>
         <!-- Footer End -->
@@ -195,6 +229,9 @@
         document.querySelector('.select2-search__field').focus();
     }); 
 	$(document).ready(function() {
+        $('#check').change(function () {
+        $('#btncheck').prop("disabled", !this.checked);
+        }).change();
         $('.dropdown-groups').select2({
         placeholder: "Pilih Kantor",
         allowClear: true

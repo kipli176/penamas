@@ -37,7 +37,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet">
 
 </head>   
-<body style="background-color:#48a9f8;color: white;">
+<body style="background-color:#48a9f8;color: white;background-image: url(/assets/images/bg.png);">
 <div class="page-wraper">
     
     <!-- Preloader -->
@@ -90,12 +90,38 @@
 							</div>
 						</div>    
 					</a>
+					<a href="#" class="card h-auto" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+						<div class="d-flex align-items-center">
+							<img src="/assets/images/welcome/wlc-3.svg" width="77px" alt="">
+							<div class="ms-4">
+								<h5>Informasi Santunan</h5>
+								<p>Klik disini melihat</p>
+							</div>
+						</div>    
+					</a>
 				</div>
+                                    <div class="modal fade" id="exampleModalCenter">                                        
+                                    <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Santunan Jasa Raharja BEBAS BIAYA</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal">
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">  
+<img src="/assets/images/santunan.jpeg" width="100%">
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Tutup</button> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 			</div>
 		</div>
 	</div>
     <!-- Welcome End -->
-	
 	<!-- PWA Offcanvas -->
 	<div class="offcanvas offcanvas-bottom pwa-offcanvas">
 		<div class="container">
@@ -111,6 +137,7 @@
 	<div class="offcanvas-backdrop pwa-backdrop"></div>
     
 </div>
+
 <!--**********************************
     Scripts
 ***********************************-->
