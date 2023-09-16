@@ -211,11 +211,16 @@
 							<li><a href="/admin/kecelakaan">Laporan Kecelakaan</a></li> 
 						</ul>
                     </li>
-                    <li class="has-menu"><a href="/admin/users" class="has-arrow ai-icon" aria-expanded="false">
-							<i class="flaticon-381-user"></i>
-							<span class="nav-text">Pengguna</span>
+                    <li class="has-menu"><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+							<i class="flaticon-381-notepad"></i>
+							<span class="nav-text">Master</span>
 						</a>
-					</li>
+                        <ul aria-expanded="false">
+							<li><a href="/admin/user">Data User</a></li>
+							<li><a href="/admin/kantor">Data Kantor</a></li>
+							<li><a href="/admin/rumahsakit">Data Rumah Sakit</a></li> 
+						</ul>
+                    </li> 
                     <li class="has-menu"><a href="/logout" class="has-arrow ai-icon" aria-expanded="false">
 							<i class="flaticon-381-exit"></i>
 							<span class="nav-text">Keluar</span>
