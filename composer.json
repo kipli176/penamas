@@ -12,6 +12,7 @@
     "require": {
         "php": "^7.4 || ^8.0",
         "codeigniter4/framework": "^4.0",
+        "minishlink/web-push": "^8.0",
         "mongodb/mongodb": "^1.12"
     },
     "require-dev": {
