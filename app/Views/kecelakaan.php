@@ -93,108 +93,32 @@
             <?php }?> 
             <?php echo form_open('kecelakaan/add',['enctype' => 'multipart/form-data']);?>
 				<div class="input-group">
-					<input type="text" placeholder="Nama Pelapor" name="pelapor" value="<?php echo set_value('pelapor'); ?>" class="form-control">
+					<input type="text" placeholder="Nama Pelapor" name="pelapor" value="<?php echo set_value('pelapor'); ?>" class="form-control" required>
 				</div>
 				<div class="input-group">
-					<input type="text" placeholder="Nama Korban" name="korban" value="<?php echo set_value('korban'); ?>" class="form-control">
+					<input type="text" placeholder="Nama Korban" name="korban" value="<?php echo set_value('korban'); ?>" class="form-control" required>
 				</div>
 				<div class="input-group">
-					<input type="text" placeholder="No WA" name="wa" class="form-control" value="<?php echo set_value('wa'); ?>">
+					<input type="text" placeholder="No WA" name="wa" class="form-control" value="<?php echo set_value('wa'); ?>" required>
 				</div>
 				<div class="input-group">
-                    <input type="text" id="tgle" placeholder="Tgl & Waktu Kejadian" name="tgl" class="form-control" value="<?php echo set_value('tgl'); ?>">
+                    <input type="text" id="tgle" placeholder="Tgl & Waktu Kejadian" name="tgl" class="form-control" value="<?php echo set_value('tgl'); ?>" required>
 				</div> 
 				<div class="input-group">
-                    <select class="form-control  dropdown-groups" name="rs"> 
+                    <select class="form-control  dropdown-groups" name="rs" required> 
                     <option></option>
                         <option value='Lainnya'>Lainnya</option>
-                        <optgroup label='DENPASAR'>
-                        <option value='RSUP SANGLAH KOTA DENPASAR'>RSUP SANGLAH KOTA DENPASAR</option>
-                        <option value='RSUD WANGAYA KOTA DENPASAR'>RSUD WANGAYA KOTA DENPASAR</option>
-                        <option value='RSAD TK.II UDAYANA KOTA DENPASAR'>RSAD TK.II UDAYANA KOTA DENPASAR</option>
-                        <option value='RS PURI RAHARJA KOTA DENPASAR'>RS PURI RAHARJA KOTA DENPASAR</option>
-                        <option value='RS SURYA HUSADHA KOTA DENPASAR'>RS SURYA HUSADHA KOTA DENPASAR</option>
-                        <option value='RS KASIH IBU KOTA DENPASAR'>RS KASIH IBU KOTA DENPASAR</option>
-                        <option value='RS DHARMA YADNYA KOTA DENPASAR'>RS DHARMA YADNYA KOTA DENPASAR</option>
-                        <option value=' RS MANUABA KOTA DENPASAR'> RS MANUABA KOTA DENPASAR</option>
-                        <option value='RS BHAKTI RAHAYU KOTA DENPASAR'>RS BHAKTI RAHAYU KOTA DENPASAR</option>
-                        <option value='RS BHAYANGKARA TRIJATA KOTA DENPASAR'>RS BHAYANGKARA TRIJATA KOTA DENPASAR</option>
-                        <option value='RS PRIMA MEDIKA KOTA DENPASAR'>RS PRIMA MEDIKA KOTA DENPASAR</option>
-                        <option value='RS SURYA HUSADHA UBUNG KOTA DENPASAR'>RS SURYA HUSADHA UBUNG KOTA DENPASAR</option>
-                        <option value='RS BALI ROYAL KOTA DENPASAR'>RS BALI ROYAL KOTA DENPASAR</option>
-                        <option value='RS BALIMED KOTA DENPASAR'>RS BALIMED KOTA DENPASAR</option>
-                        <option value='RSUD BALI MANDARA KOTA DENPASAR'>RSUD BALI MANDARA KOTA DENPASAR</option>
-                        <option value='KLINIK/RD PRAKTEK DI KOTA DENPASAR (SANUR MEDICAL CLINIC)'>KLINIK/RD PRAKTEK DI KOTA DENPASAR (SANUR MEDICAL CLINIC)</option>
-                        <option value='KLINIK/RD PRAKTEK DI KOTA DENPASAR (DHARMA SIDHI)'>KLINIK/RD PRAKTEK DI KOTA DENPASAR (DHARMA SIDHI)</option>
-                        <option value='RS MURNI TEGUH TUBAN BADUNG'>RS MURNI TEGUH TUBAN BADUNG</option>
-                        <option value='BIC CLINIC/RSIA BUNDA DENPASAR'>BIC CLINIC/RSIA BUNDA DENPASAR</option>
-                        <option value='RS. MATA BALI MANDARA DENPASAR'>RS. MATA BALI MANDARA DENPASAR</option>
-                        <optgroup label='BADUNG'>
-                        <option value='RS SILOAM BALI KAB. BADUNG'>RS SILOAM BALI KAB. BADUNG</option>
-                        <option value='RSUD MANGUSADA KAB. BADUNG'>RSUD MANGUSADA KAB. BADUNG</option>
-                        <option value='RS SURYA HUSADHA NUSADUA KAB. BADUNG'>RS SURYA HUSADHA NUSADUA KAB. BADUNG</option>
-                        <option value='RS KASIH IBU KEDONGANAN KAB. BADUNG'>RS KASIH IBU KEDONGANAN KAB. BADUNG</option>
-                        <option value='RS BALI JIMBARAN KAB. BADUNG'>RS BALI JIMBARAN KAB. BADUNG</option>
-                        <option value='RS GARBA MED'>RS GARBA MED</option>
-                        <option value='RS.UNIV.UDAYANA KAB.BADUNG'>RS.UNIV.UDAYANA KAB.BADUNG</option>
-                        <option value='RS.BIMC KUTA BADUNG'>RS.BIMC KUTA BADUNG</option>
-                        <option value='RS.BIMC NUSA DUA BADUNG'>RS.BIMC NUSA DUA BADUNG</option>
-                        <option value='RS.WINDU HUSADHA BADUNG'>RS.WINDU HUSADHA BADUNG</option>
-                        <option value='KLINIK PRATAMA TUNAS HARAPAN BADUNG'>KLINIK PRATAMA TUNAS HARAPAN BADUNG</option>
-                        <optgroup label='TABANAN'>
-                        <option value='RSUD KAB. TABANAN'>RSUD KAB. TABANAN</option>
-                        <option value='RS DHARMA KERTI KAB. TABANAN'>RS DHARMA KERTI KAB. TABANAN</option>
-                        <option value='RS KASIH IBU KAB. TABANAN'>RS KASIH IBU KAB. TABANAN</option>
-                        <option value='RS WISMA PRASHANTI KAB. TABANAN'>RS WISMA PRASHANTI KAB. TABANAN</option>
-                        <option value='RS BHAKTI RAHAYU KAB. TABANAN'>RS BHAKTI RAHAYU KAB. TABANAN</option>
-                        <option value='RS SEMARA RATIH KAB. TABANAN'>RS SEMARA RATIH KAB. TABANAN</option>
-                        <option value='RS NYITDAH/RSUD SINGASANA TABANAN'>RS NYITDAH/RSUD SINGASANA TABANAN</option>
-                        <option value='RS. BALI HOLISTIK KAB. TABANAN'>RS. BALI HOLISTIK KAB. TABANAN</option>
-                        <optgroup label='GIANYAR'>
-                        <option value='RSUD SANJIWANI KAB. GIANYAR'>RSUD SANJIWANI KAB. GIANYAR</option>
-                        <option value=' RS ARI CANTI KAB. GIANYAR'> RS ARI CANTI KAB. GIANYAR</option>
-                        <option value='RS GANESHA KAB. GIANYAR'>RS GANESHA KAB. GIANYAR</option>
-                        <option value='RS FAMILI HUSADA KAB. GIANYAR'>RS FAMILI HUSADA KAB. GIANYAR</option>
-                        <option value='RS KASIH IBU SABA KAB. GIANYAR'>RS KASIH IBU SABA KAB. GIANYAR</option>
-                        <option value='RS. PREMAGANA KAB. GIANYAR'>RS. PREMAGANA KAB. GIANYAR</option>
-                        <option value='RSUD. PAYANGAN KAB.GIANYAR'>RSUD. PAYANGAN KAB.GIANYAR</option>
-                        <option value='KLINIK KENAK MEDIKA GIANYAR'>KLINIK KENAK MEDIKA GIANYAR</option>
-                        <optgroup label='BANGLI'>
-                        <option value='RSUD KAB. BANGLI'>RSUD KAB. BANGLI</option>
-                        <option value='RS BANGLI MEDIKA CANTI (BMC) KAB. BANGLI'>RS BANGLI MEDIKA CANTI (BMC) KAB. BANGLI</option>
-                        <optgroup label='KLUNGKUNG'>
-                        <option value='RSUD KAB. KLUNGKUNG'>RSUD KAB. KLUNGKUNG</option>
-                        <option value='RS BINTANG KAB. KLUNGKUNG'>RS BINTANG KAB. KLUNGKUNG</option>
-                        <option value='RS. PERMATA HATI KLUNGKUNG'>RS. PERMATA HATI KLUNGKUNG</option>
-                        <option value='RS. GEMA SANTI NUSA PENIDA'>RS. GEMA SANTI NUSA PENIDA</option>
-                        <option value='RS. GRAHA BHAKTI MEDIKA KLUNGKUNG'>RS. GRAHA BHAKTI MEDIKA KLUNGKUNG</option>
-                        <option value='LEMBONGAN MEDICAL CLINIC'>LEMBONGAN MEDICAL CLINIC</option>
-                        <optgroup label='KARANGASEM'>
-                        <option value='RS BALIMED KAB. KARANGASEM'>RS BALIMED KAB. KARANGASEM</option>
-                        <option value='RSUD KAB. KARANGASEM'>RSUD KAB. KARANGASEM</option>
-                        <optgroup label='BULELENG'>
-                        <option value='RSUD SINGARAJA KAB. BULELENG'>RSUD SINGARAJA KAB. BULELENG</option>
-                        <option value='RS KERTHA USADA KAB. BULELENG'>RS KERTHA USADA KAB. BULELENG</option>
-                        <option value='RS TNI AD TK.IV SINGARAJA KAB. BULELENG'>RS TNI AD TK.IV SINGARAJA KAB. BULELENG</option>
-                        <option value='RS PARAMA SIDHI KAB. BULELENG'>RS PARAMA SIDHI KAB. BULELENG</option>
-                        <option value='RS KARYA DHARMA HUSADA KAB. BULELENG'>RS KARYA DHARMA HUSADA KAB. BULELENG</option>
-                        <option value='RS SHANTI GRAHA KAB. BULELENG'>RS SHANTI GRAHA KAB. BULELENG</option>
-                        <option value='RS BALIMED, KAB. BULELENG'>RS BALIMED, KAB. BULELENG</option>
-                        <option value='RSUD PRATAMA TANGGUWISIA, KAB. BULELENG'>RSUD PRATAMA TANGGUWISIA, KAB. BULELENG</option>
-                        <option value='RSUD PRATAMA GIRI EMAS'>RSUD PRATAMA GIRI EMAS</option>
-                        <optgroup label='JEMBRANA'>
-                        <option value='RSUD NEGARA KAB. JEMBRANA'>RSUD NEGARA KAB. JEMBRANA</option>
-                        <option value='RS BUNDA KAB. JEMBRANA'>RS BUNDA KAB. JEMBRANA</option>
-                        <option value='RS BALIMED KAB. JEMBRANA'>RS BALIMED KAB. JEMBRANA</option>
-                        <option value='RSUD KERTAYASA JEMBRANA'>RSUD KERTAYASA JEMBRANA</option>
+                            <?php foreach($rs as $rse){?>
+                        <option value='<?=$rse->rs;?>'><?=$rse->rs;?></option>
+                        <?php }?>
 
                     </select>
 				</div>
 				<div class="input-group">
-					<input type="text" id="rs" placeholder="Masukan nama rumah sakit" name="rs" class="form-control" >
+					<input type="text" id="rs" placeholder="Masukan nama rumah sakit" name="rs" class="form-control" required>
 				</div>
 				<div class="input-group">
-                    <select class="form-control js-example-basic-singles" name="jenis"> 
+                    <select class="form-control js-example-basic-singles" name="jenis" required> 
                         <option>-- Jenis Kecelakaan --</option>
                         <option value="KECELAKAAN 2 KENDARAAN">KECELAKAAN 2 KENDARAAN</option> 
                         <option value="TABRAK LARI">TABRAK LARI</option> 
@@ -206,7 +130,7 @@
                     </select>
 				</div>
 				<div class="input-group">
-                    <textarea class="form-control" rows="4" name="lokasi" placeholder="Lokasi Kecelakaan"><?php echo set_value('lokasi'); ?></textarea>
+                    <textarea class="form-control" rows="4" name="lokasi" placeholder="Lokasi Kecelakaan" required><?php echo set_value('lokasi'); ?></textarea>
 				</div> 
 				<div class="form-group">
                 <label for="inputAddress" class="border-bottom w-100 pb-1 mb-3">Google Map - <i class="text-xs">Optional</i></label>
@@ -295,6 +219,7 @@
         $("#rs").hide();
         $(".dropdown-groups").on("change", function() {
             if ($(this).val() === "Lainnya") {
+                $("#rs").focus();
                 $("#rs").show();
             }
             else {

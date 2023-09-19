@@ -65,7 +65,8 @@ class Kecelakaan extends BaseController
         //         } 
 		// 	}
 		// } else {
-			echo view('kecelakaan');
+        $data['rs']=getAll('rs');
+			echo view('kecelakaan',$data);
 		// }
     }
 
@@ -98,7 +99,7 @@ class Kecelakaan extends BaseController
                 }
 
                 if ($errors) { 
-                    echo view('aduan', ['errors' => $errors]);
+                    echo view('kecelakaan', ['errors' => $errors]);
                 }else{
                     $data=[
                         'pelapor'=>$this->request->getPost('pelapor'),
@@ -109,16 +110,16 @@ class Kecelakaan extends BaseController
                         'jenis'=>$this->request->getPost('jenis'),
                         'rs'=>$this->request->getPost('rs'),
                         'inputLat'=>$this->request->getPost('inputLat'),
-                        'inputLng'=>$this->request->getPost('inputLng'),
-                        'nomor'=>$this->request->getPost('nomor'),
+                        'inputLng'=>$this->request->getPost('inputLng'), 
+                        'kode'=>date('mdis'),
                         'lampiran'=>$lampirane,
                         'status'=>0,
                         'date_created'=>date('Y-m-d')
                     ];
                     $simpan=saveData('kecelakaan',$data);
-                    kirimPesan($this->request->getPost('wa'),'Terimakasih Bapak/Ibu *'.$this->request->getPost('pelapor').'*
-Laporan anda nomor *'.$this->request->getPost('nomor').'*sudah kami terima dan sedang kami proses. 
-Kami akan segera menghubungi anda kembali dalam waktu maksimal 1x24 jam".
+                    kirimPesan($data["wa"],'Terimakasih Bapak/Ibu *'.$data["pelapor"].'*
+Laporan anda kode *#LK'.$data["kode"].'* sudah kami terima dan sedang kami proses. 
+Kami akan segera menghubungi anda kembali dalam waktu maksimal 1x24 jam.
 Salam, Jasa Raharja');
                     echo view('sukses', ['success' => 'Laporan anda telah dikirim.']); 
                 }

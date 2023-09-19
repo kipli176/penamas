@@ -11,7 +11,8 @@ class Aspirasi extends BaseController
 
     public function index()
     { 
-			echo view('aspirasi'); 
+        $data['kantor']=getAll('kantor');
+			echo view('aspirasi',$data); 
     }
 
     public function add()
@@ -33,15 +34,15 @@ class Aspirasi extends BaseController
                         'nama'=>$this->request->getPost('nama'),
                         'wa'=>$this->request->getPost('wa'),
                         'tgl'=>$this->request->getPost('tgl'),
-                        'lokasi'=>$this->request->getPost('lokasi'),
-                        'nomor'=>$this->request->getPost('nomor'),
+                        'lokasi'=>$this->request->getPost('lokasi'), 
+                        'kode'=>date('mdis'),
                         'status'=>0,
                         'date_created'=>date('Y-m-d')
                     ];
                     $simpan=saveData('aspirasi',$data);
-                    kirimPesan($this->request->getPost('wa'),'Terimakasih Bapak/Ibu *'.$this->request->getPost('nama').'*
-Laporan anda nomor *'.$this->request->getPost('nomor').'*sudah kami terima dan sedang kami proses. 
-Kami akan segera menghubungi anda kembali dalam waktu maksimal 1x24 jam".
+                    kirimPesan($data["wa"],'Terimakasih Bapak/Ibu *'.$data["nama"].'*
+Laporan anda kode *#AS'.$data["kode"].'* sudah kami terima dan sedang kami proses. 
+Kami akan segera menghubungi anda kembali dalam waktu maksimal 1x24 jam.
 Salam, Jasa Raharja');
                     echo view('sukses', ['success' => 'Aspirasi anda telah dikirim.']); 
         }else{ 

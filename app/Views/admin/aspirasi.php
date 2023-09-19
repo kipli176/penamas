@@ -257,12 +257,7 @@
                                     <table id="example5" class="display table-responsive-lg">
                                         <thead>
                                             <tr>
-                                                <th>
-													<div class="custom-control custom-checkbox">
-														<input type="checkbox" class="custom-control-input" id="checkAll" required="">
-														<label class="custom-control-label" for="checkAll"></label>
-													</div>
-												</th>
+                                                <th>Kode</th>
                                                 <th>Whatsapp</th>
                                                 <th>Tanggal</th>
                                                 <th>Nama Pelapor</th>
@@ -274,13 +269,8 @@
                                         </thead>
                                         <tbody>
                                              <?php foreach($aspirasi as $item){?>
-                                            <tr>
-												<td>
-													<div class="custom-control custom-checkbox">
-														<input type="checkbox" class="custom-control-input" id="customCheckBox7" required="">
-														<label class="custom-control-label" for="customCheckBox7"></label>
-													</div>
-												</td>
+                                            <tr> 
+                                                <td>#AS<?=$item->kode;?></td> 
                                                 <td><?='62' . substr(substr_replace($item->wa,"xxxxx",-6), 1);?></td>
 												<td><?=date('d/m/Y',strtotime($item->tgl));?></td>
                                                 <td><?=$item->nama;?></td>

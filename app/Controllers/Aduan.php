@@ -99,17 +99,17 @@ class Aduan extends BaseController
                         'isi'=>$this->request->getPost('isi'),
                         'nama'=>$this->request->getPost('nama'),
                         'wa'=>$this->request->getPost('wa'),
-                        'tgl'=>$this->request->getPost('tgl'),
-                        'nomor'=>$this->request->getPost('nomor'),
+                        'tgl'=>$this->request->getPost('tgl'), 
                         'lokasi'=>$this->request->getPost('lokasi'),
                         'lampiran'=>$lampirane,
+                        'kode'=>date('mdis'),
                         'status'=>0,
                         'date_created'=>date('Y-m-d')
                     ];
                     $simpan=saveData('aduan',$data);
-                    kirimPesan($this->request->getPost('wa'),'Terimakasih Bapak/Ibu *'.$this->request->getPost('nama').'*
-Laporan anda nomor *'.$this->request->getPost('nomor').'*sudah kami terima dan sedang kami proses. 
-Kami akan segera menghubungi anda kembali dalam waktu maksimal 1x24 jam".
+                    kirimPesan($data["wa"],'Terimakasih Bapak/Ibu *'.$data["nama"].'*
+Laporan anda kode *#AD'.$data["kode"].'* sudah kami terima dan sedang kami proses. 
+Kami akan segera menghubungi anda kembali dalam waktu maksimal 1x24 jam.
 Salam, Jasa Raharja');
                    
 
