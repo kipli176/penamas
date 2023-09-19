@@ -110,55 +110,9 @@
 				<div class="input-group">
                     <select class="form-control dropdown-groups" name="lokasi"> 
                         <option></option>
-                        <option value="KANTOR CABANG BALI">KANTOR CABANG BALI</option>
-                            <option value="KANTOR PERWAKILAN SINGARAJA">KANTOR PERWAKILAN SINGARAJA</option>
-                            <option value="KANTOR PELAYANAN JASA RAHARJA GIANYAR">KANTOR PELAYANAN JASA RAHARJA GIANYAR</option>
-                            <option value="SAMSAT DENPASAR">SAMSAT DENPASAR</option>
-                            <option value="SAMSAT TABANAN">SAMSAT TABANAN</option>
-                            <option value="SAMSAT GIANYAR">SAMSAT GIANYAR</option>
-                            <option value="SAMSAT KLUNGKUNG">SAMSAT KLUNGKUNG</option>
-                            <option value="SAMSAT BANGLI">SAMSAT BANGLI</option>
-                            <option value="SAMSAT BADUNG">SAMSAT BADUNG</option>
-                            <option value="SAMSAT PEMBANTU SESETAN">SAMSAT PEMBANTU SESETAN</option>
-                            <option value="SAMSAT PEMBANTU KUTA">SAMSAT PEMBANTU KUTA</option>
-                            <option value="SAMSAT PEMBANTU NUSA PENIDA">SAMSAT PEMBANTU NUSA PENIDA</option>
-                            <option value="SAMSAT PEMBANTU UBUD">SAMSAT PEMBANTU UBUD</option>
-                            <option value="SAMSAT PEMBANTU BAJERA">SAMSAT PEMBANTU BAJERA</option>
-                            <option value="SAMSAT GERAI DALUNG">SAMSAT GERAI DALUNG</option>
-                            <option value="SAMSAT GERAI NUSA DUA">SAMSAT GERAI NUSA DUA</option>
-                            <option value="SAMSAT LINK BATURITI">SAMSAT LINK BATURITI</option>
-                            <option value="SAMSAT GERAI PENATIH">SAMSAT GERAI PENATIH</option>
-                            <option value="SAMSAT KELILING 1">SAMSAT KELILING 1</option>
-                            <option value="SAMSAT KELILING 2">SAMSAT KELILING 2</option>
-                            <option value="SAMSAT GERAI PUPUAN">SAMSAT GERAI PUPUAN</option>
-                            <option value="SAMSAT LINK KINTAMANI">SAMSAT LINK KINTAMANI</option>
-                            <option value="SAMSAT KERTI">SAMSAT KERTI</option>
-                            <option value="SAMSAT GELIS">SAMSAT GELIS</option>
-                            <option value="SAMSAT KELILING TABANAN">SAMSAT KELILING TABANAN</option>
-                            <option value="SAMSAT KELILING BANGLI">SAMSAT KELILING BANGLI</option>
-                            <option value="SAMSAT KELILING KLUNGKUNG">SAMSAT KELILING KLUNGKUNG</option>
-                            <option value="SAMSAT KELILING BADUNG">SAMSAT KELILING BADUNG</option>
-                            <option value="SAMSAT GELIS SAMBA">SAMSAT GELIS SAMBA</option>
-                            <option value="SAMSAT DRIVE THRU GIANYAR">SAMSAT DRIVE THRU GIANYAR</option>
-                            <option value="E-SAMSAT NASIONAL">E-SAMSAT NASIONAL</option>
-                            <option value="E-SAMSAT BALI">E-SAMSAT BALI</option>
-                            <option value="SAMSAT POLDA">SAMSAT POLDA</option>
-                            <option value="SAMSAT DRIVETHRU/GELIS BANGLI">SAMSAT DRIVETHRU/GELIS BANGLI</option>
-                            <option value="SAMSAT DRIVE THRU SESETAN">SAMSAT DRIVE THRU SESETAN</option>
-                            <option value="SAMSAT BULELENG">SAMSAT BULELENG</option>
-                            <option value="SAMSAT JEMBRANA/NEGARA">SAMSAT JEMBRANA/NEGARA</option>
-                            <option value="SAMSAT KARANGASEM">SAMSAT KARANGASEM</option>
-                            <option value="SAMSAT PEMBANTU SERIRIT">SAMSAT PEMBANTU SERIRIT</option>
-                            <option value="SAMSAT GERAI GILIMANUK">SAMSAT GERAI GILIMANUK</option>
-                            <option value="SAMSAT GERAI KUBUTAMBAHAN">SAMSAT GERAI KUBUTAMBAHAN</option>
-                            <option value="SAMSAT KELILING 3 BULELENG">SAMSAT KELILING 3 BULELENG</option>
-                            <option value="SAMSAT KELILING 4 KARANGASEM">SAMSAT KELILING 4 KARANGASEM</option>
-                            <option value="SAMSAT LINK TEJAKULA">SAMSAT LINK TEJAKULA</option>
-                            <option value="SAMSAT KELILING JEMBRANA">SAMSAT KELILING JEMBRANA</option>
-                            <option value="SAMSAT DRIVETHRU / GELIS SAMBUL">SAMSAT DRIVETHRU / GELIS SAMBUL</option>
-                            <option value="SAMSAT LINK MANGGIS">SAMSAT LINK MANGGIS</option>
-                            <option value="SAMSAT DRIVE THRU/GELIS KARANGASEM">SAMSAT DRIVE THRU/GELIS KARANGASEM</option>
-                            <option value="SAMSAT DRIVE THRU JEMBRANA">SAMSAT DRIVE THRU JEMBRANA</option>
+                        <?php foreach($kantor as $kantore){?>
+                        <option value='<?=$kantore->kantor;?>'><?=$kantore->kantor;?></option>
+                        <?php }?>
 
                     </select>
 				</div>

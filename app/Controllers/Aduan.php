@@ -13,7 +13,8 @@ class Aduan extends BaseController
     {
         // helper(['form', 'url', 'mongo']);
         // $model = new AduanModel();
-        return view('aduan');
+        $data['kantor']=getAll('kantor');
+        return view('aduan',$data);
 		// if($this->request->getPost('submit')) {
 		// 	$validation =  \Config\Services::validation();
 			
