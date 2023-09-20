@@ -257,8 +257,7 @@
                                     <table id="example5" class="display table-responsive-lg">
                                         <thead>
                                             <tr>
-                                                <th>Kode</th>
-                                                <th>Whatsapp</th>
+                                                <th>Nomor</th> 
                                                 <th>Tanggal</th>
                                                 <th>Nama Pelapor</th>
                                                 <th>Judul</th>
@@ -271,7 +270,7 @@
                                              <?php foreach($aspirasi as $item){?>
                                             <tr> 
                                                 <td>#AS<?=$item->kode;?></td> 
-                                                <td><?='62' . substr(substr_replace($item->wa,"xxxxx",-6), 1);?></td>
+                                                <!-- <td><?='62' . substr(substr_replace($item->wa,"xxxxx",-6), 1);?></td> -->
 												<td><?=date('d/m/Y',strtotime($item->tgl));?></td>
                                                 <td><?=$item->nama;?></td>
                                                 <td><?=$item->judul;?></td>

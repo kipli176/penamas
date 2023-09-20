@@ -71,7 +71,7 @@
                         </a>
                     </div>
                     <div class="mid-content">
-                        <h5 class="mb-0">Laporan Kecelakaan</h5>
+                         <div class="divider border-warning inner-divider text-danger right mb-0"><span><a data-bs-toggle="modal" data-bs-target="#exampleModalCentere" class="blink text-white" href="#">Informasi Santunan ></a></span></div>
                     </div>
                 </div>
             </div>
@@ -108,6 +108,7 @@
                     <select class="form-control  dropdown-groups" name="rs" required> 
                     <option></option>
                         <option value='Lainnya'>Lainnya</option>
+                        
                             <?php foreach($rs as $rse){?>
                         <option value='<?=$rse->rs;?>'><?=$rse->rs;?></option>
                         <?php }?>
@@ -115,11 +116,11 @@
                     </select>
 				</div>
 				<div class="input-group">
-					<input type="text" id="rs" placeholder="Masukan nama rumah sakit" name="rs" class="form-control" required>
+					<input type="text" id="rs" placeholder="Masukan nama rumah sakit" name="rs" class="form-control" >
 				</div>
 				<div class="input-group">
-                    <select class="form-control js-example-basic-singles" name="jenis" required> 
-                        <option>-- Jenis Kecelakaan --</option>
+                    <select class="form-control js-example-basic-singles" id="jenis" name="jenis" required> 
+                        <option></option>
                         <option value="KECELAKAAN 2 KENDARAAN">KECELAKAAN 2 KENDARAAN</option> 
                         <option value="TABRAK LARI">TABRAK LARI</option> 
                         <option value="TABRAK PEJALAN KAKI/SEPEDA">TABRAK PEJALAN KAKI/SEPEDA</option> 
@@ -183,6 +184,27 @@
                                             </div>
                                         </div>
                                     </div>
+                                    
+                                    <div class="modal fade" id="exampleModalCentere">                                        
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Pengurusan Santunan Jasa Raharja BEBAS BIAYA</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal">
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">  
+													<img src="/assets/images/santunan.jpg" width="100%"> 
+													<img src="/assets/images/syarat.jpg" width="100%">
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Tutup</button> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
         <!-- Footer -->
         <footer class="footer fixed">
             <div class="container">
@@ -205,22 +227,22 @@
 <script src="/assets/js/settings.js"></script>
 <script src="/assets/js/custom.js"></script>
 <script src="/assets/vendor/imageuplodify/imageuploadify.min.js"></script> 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdu9gXgc3X1zN0ENhSb6fh4me9aEslKHI&libraries=&v=weekly" defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdu9gXgc3X1zN0ENhSb6fh4me9aEslKHI&libraries=&v=weekly&callback=initMap" defer></script>
 <script src="/admine/vendor/select2/js/select2.full.min.js"></script> 
 <script>
     
     $(document).on('select2:open', () => {
         document.querySelector('.select2-search__field').focus();
     }); 
-	$(document).ready(function() {
+	$(document).ready(function() { 
         $('#check').change(function () {
-        $('#btncheck').prop("disabled", !this.checked);
+            $('#btncheck').prop("disabled", !this.checked);
         }).change();
         $("#rs").hide();
         $(".dropdown-groups").on("change", function() {
-            if ($(this).val() === "Lainnya") {
-                $("#rs").focus();
+            if ($(this).val() === "Lainnya") { 
                 $("#rs").show();
+                $("#rs").prop('required',true);
             }
             else {
                 $("#rs").hide();
@@ -228,6 +250,10 @@
         });
         $('.dropdown-groups').select2({
         placeholder: "Pilih Rumah Sakit",
+        allowClear: true
+        });
+        $('#jenis').select2({
+        placeholder: "Jenis Kecelakaan",
         allowClear: true
         });
             
@@ -245,6 +271,24 @@
         let mapTambahPelanggan = false;
     let markerTambahPelanggan = false;
     let controlDelMarker = false;
+    
+    function showInfo(latlng) {
+      geocoder.geocode({
+        'latLng': latlng
+      }, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          if (results[1]) {
+            // here assign the data to asp lables
+            // document.getElementById('<%=addressStandNo.ClientID %>').value = results[1].formatted_address;
+            alert( results[1].formatted_address);
+          } else {
+            alert('No results found');
+          }
+        } else {
+          alert('Geocoder failed due to: ' + status);
+        }
+      });
+    }
     function initMapTambahPelanggan() {
         const image = "https://my.radboox.com/public/upload/files/marker.png";
         var lat = -2.548926;
@@ -335,8 +379,9 @@
                 } else {
                     markerTambahPelanggan.setPosition(clickedLocation);
                 }
-                markerLocation(markerTambahPelanggan, 'inputLat', 'inputLng');
+                markerLocation(markerTambahPelanggan, 'inputLat', 'inputLng');showInfo(this.position);
             });
+            
         }
 
         if (navigator.geolocation) {

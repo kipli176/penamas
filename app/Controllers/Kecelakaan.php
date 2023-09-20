@@ -80,7 +80,7 @@ class Kecelakaan extends BaseController
             'tgl'   => ['label' => 'Tanggal Kejadian', 'rules' => 'required|min_length[3]|max_length[250]'],
             'lokasi'=> ['label' => 'Lokasi', 'rules' => 'required|min_length[3]|max_length[250]'],
             'jenis'  => ['label' => 'Jenis Kecelakaan', 'rules' => 'required|min_length[3]|max_length[250]'],
-            'lampiran' => 'uploaded[lampiran]|max_size[lampiran,5500]',
+            // 'lampiran' => 'uploaded[lampiran]|max_size[lampiran,5500]',
         ];
 
         if($this->validate($rules)){ 
@@ -98,9 +98,9 @@ class Kecelakaan extends BaseController
                     $lampirane=implode(",",$lampiran);
                 }
 
-                if ($errors) { 
-                    echo view('kecelakaan', ['errors' => $errors]);
-                }else{
+                // if ($errors) { 
+                //     echo view('kecelakaan', ['errors' => $errors]);
+                // }else{
                     $data=[
                         'pelapor'=>$this->request->getPost('pelapor'),
                         'korban'=>$this->request->getPost('korban'),
@@ -118,16 +118,39 @@ class Kecelakaan extends BaseController
                     ];
                     $simpan=saveData('kecelakaan',$data);
                     kirimPesan($data["wa"],'Terimakasih Bapak/Ibu *'.$data["pelapor"].'*
-Laporan anda kode *#LK'.$data["kode"].'* sudah kami terima dan sedang kami proses. 
+Laporan anda dengan nomor *#LK'.$data["kode"].'* sudah kami terima dan sedang kami proses. 
 Kami akan segera menghubungi anda kembali dalam waktu maksimal 1x24 jam.
-Salam, Jasa Raharja');
+Salam, 
+Jasa Raharja');
                     echo view('sukses', ['success' => 'Laporan anda telah dikirim.']); 
-                }
+                // }
             }  
         }else{
-            // $data['validation'] = $this->validator; 
+            // $data['validation'] = $this->validator;  
+            $data['success'] = 'Laporan anda telah dikirim.';
             $data['errors'] = $this->validator->getErrors();
-            echo view('kecelakaan', $data);
+            $data=[
+                'pelapor'=>$this->request->getPost('pelapor'),
+                'korban'=>$this->request->getPost('korban'),
+                'wa'=>$this->request->getPost('wa'),
+                'tgl'=>$this->request->getPost('tgl'),
+                'lokasi'=>$this->request->getPost('lokasi'),
+                'jenis'=>$this->request->getPost('jenis'),
+                'rs'=>$this->request->getPost('rs'),
+                'inputLat'=>$this->request->getPost('inputLat'),
+                'inputLng'=>$this->request->getPost('inputLng'), 
+                'kode'=>date('mdis'),
+                'lampiran'=>'',
+                'status'=>0,
+                'date_created'=>date('Y-m-d')
+            ];
+            $simpan=saveData('kecelakaan',$data);
+            kirimPesan($data["wa"],'Terimakasih Bapak/Ibu *'.$data["pelapor"].'*
+Laporan anda dengan nomor *#LK'.$data["kode"].'* sudah kami terima dan sedang kami proses. 
+Kami akan segera menghubungi anda kembali dalam waktu maksimal 1x24 jam.
+Salam, 
+Jasa Raharja');
+            echo view('sukses', ['success' => 'Laporan anda telah dikirim.']); 
         }
  
     }

@@ -109,9 +109,10 @@ class Aduan extends BaseController
                     ];
                     $simpan=saveData('aduan',$data);
                     kirimPesan($data["wa"],'Terimakasih Bapak/Ibu *'.$data["nama"].'*
-Laporan anda kode *#AD'.$data["kode"].'* sudah kami terima dan sedang kami proses. 
+Laporan anda dengan nomor *#AD'.$data["kode"].'* sudah kami terima dan sedang kami proses. 
 Kami akan segera menghubungi anda kembali dalam waktu maksimal 1x24 jam.
-Salam, Jasa Raharja');
+Salam, 
+Jasa Raharja');
                    
 
                     echo view('sukses', ['success' => 'Laporan anda telah dikirim.']); 

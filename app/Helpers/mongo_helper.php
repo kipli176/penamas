@@ -68,6 +68,21 @@ function getAll($a, $limit = 100)
     }
 }
 
+function getPesan($a, $limit = 100)
+{
+    $connection = new Db();
+    $database = $connection->getDatabase();
+    $collection = $database->pesan;
+    try {
+        $cursor = $collection->find(['idne' => new \MongoDB\BSON\ObjectId($a)], ['limit' => $limit,'sort' => ['_id' => -1]]);
+        $books = $cursor->toArray();
+
+        return $books;
+    } catch (\MongoDB\Exception\RuntimeException $ex) {
+        show_error('Error while fetching books: '.$ex->getMessage(), 500);
+    }
+}
+
 function deleteId($a,$b)
 {
     $connection = new Db();

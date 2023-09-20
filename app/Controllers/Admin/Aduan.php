@@ -24,6 +24,7 @@ class Aduan extends BaseController
         $data['username']=$session->get('user_name');
         $data['link']='aduan';
         $data['detail']=getId('aduan',$id);
+        $data['pesan']=getPesan($id);
         // $data['aduan']=getAll('aduan');
         return view('admin/view',$data);
     }
@@ -34,9 +35,10 @@ class Aduan extends BaseController
         prosesId('aduan',$id); 
         $get=getId('aduan',$id);
         kirimPesan($get->wa,'Terima Kasih Bapak/Ibu *'.$get->nama.'*. 
-Laporan anda sudah kami terima dan sedang dalam proses review.
+Laporan anda dengan nomor *#AS'.$get->kode.'* sudah kami terima dan sedang dalam proses review.
 Kami akan segera menghubungi anda kembali.
-Salam, Jasa Raharja');
+Salam, 
+Jasa Raharja');
         return redirect()->to('/admin/aduan');
     }
     public function selesai($id)
@@ -52,9 +54,11 @@ Salam, Jasa Raharja');
         selesaiId('aduan',$id); 
         $get=getId('aduan',$id);
         // $data['aduan']=getAll('aduan');
-        kirimPesan($get->wa,'Terimakasih *'.$get->nama.'*. 
-'.$pesane.'
-Salam, Jasa Raharja');
+        $isi=$pesane.'
+Salam, 
+Jasa Raharja';
+        saveData('pesan',['pesan'=>$isi,'idne'=>$get->_id]);
+        kirimPesan($get->wa,$isi); 
         return redirect()->to('/admin/aduan');
     }
     public function hapus($id)

@@ -258,28 +258,14 @@
                                 <div class="table-responsive">
                                     <table id="example5" class="display table-responsive-lg">
                                         <thead>
-                                            <tr>
-                                                <th>
-													<div class="custom-control custom-checkbox">
-														<input type="checkbox" class="custom-control-input" id="checkAll" required="">
-														<label class="custom-control-label" for="checkAll"></label>
-													</div>
-												</th>
-                                                <th>ID</th>
+                                            <tr> 
                                                 <th>Kantor</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                              <?php foreach ($kantor as $item) {?>
-                                            <tr>
-												<td>
-													<div class="custom-control custom-checkbox">
-														<input type="checkbox" class="custom-control-input" id="customCheckBox7" required="">
-														<label class="custom-control-label" for="customCheckBox7"></label>
-													</div>
-												</td> 
-                                                <td><?php echo $item->_id; ?></td>
+                                            <tr> 
                                                 <td><?php echo $item->kantor; ?></td>
 												<td>
                                                 <div class="d-flex">

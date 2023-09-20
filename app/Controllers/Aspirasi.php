@@ -41,9 +41,10 @@ class Aspirasi extends BaseController
                     ];
                     $simpan=saveData('aspirasi',$data);
                     kirimPesan($data["wa"],'Terimakasih Bapak/Ibu *'.$data["nama"].'*
-Laporan anda kode *#AS'.$data["kode"].'* sudah kami terima dan sedang kami proses. 
+Laporan anda dengan nomor *#AS'.$data["kode"].'* sudah kami terima dan sedang kami proses. 
 Kami akan segera menghubungi anda kembali dalam waktu maksimal 1x24 jam.
-Salam, Jasa Raharja');
+Salam, 
+Jasa Raharja');
                     echo view('sukses', ['success' => 'Aspirasi anda telah dikirim.']); 
         }else{ 
             $data['errors'] = $this->validator->getErrors();

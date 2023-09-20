@@ -24,6 +24,7 @@ class Aspirasi extends BaseController
         $data['username']=$session->get('user_name');
         $data['detail']=getId('aspirasi',$id);
         $data['link']='aspirasi';
+        $data['pesan']=getPesan($id);
         // $data['aduan']=getAll('aduan');
         return view('admin/view',$data);
     }
@@ -34,9 +35,10 @@ class Aspirasi extends BaseController
         prosesId('aspirasi',$id); 
         $get=getId('aspirasi',$id);
         kirimPesan($get->wa,'Terima Kasih Bapak/Ibu *'.$get->nama.'*. 
-Laporan anda sudah kami terima dan sedang dalam proses review.
+Laporan anda dengan nomor *#AS'.$get->kode.'* sudah kami terima dan sedang dalam proses review.
 Kami akan segera menghubungi anda kembali.
-Salam, Jasa Raharja');
+Salam, 
+Jasa Raharja');
         return redirect()->to('/admin/aspirasi');
     }
     public function selesai($id)
@@ -44,11 +46,19 @@ Salam, Jasa Raharja');
         helper(['mongo']);
         $session = session();
         // echo "Welcome back, ".$session->get('user_name');
+        $pesane=$this->request->getPost('pesan');
         $data['judul']='Detail Aduan';
         $data['username']=$session->get('user_name');
         $data['link']='aspirasi';
         $data['detail']=prosesId('aspirasi',$id);
+        selesaiId('aspirasi',$id); 
+        $get=getId('aspirasi',$id);
         // $data['aduan']=getAll('aduan');
+        $isi=$pesane.'
+Salam, 
+Jasa Raharja';
+        saveData('pesan',['pesan'=>$isi,'idne'=>$get->_id]);
+        kirimPesan($get->wa,$isi); 
         return redirect()->to('/admin/aspirasi');
     }
     public function hapus($id)

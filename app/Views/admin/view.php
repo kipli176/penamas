@@ -334,6 +334,16 @@
                                 </div>
                                 <?php }?>
 
+                                <?php if($detail->status==2){?> 
+                                <div class="read-content-body">
+                                    <h5 class="mb-4">Histori</h5>
+                                    <?php foreach($pesan as $isine){?>
+                                        <p class="mb-2"><?=$isine->pesan;?></p>
+                                    <hr>
+                                    <?php }?>
+                                    
+                                </div>
+                                <?php }?>
                                 <?php if($detail->status==1){?>                                
                                     <div class="mb-3 pt-3">
                                 <form action="/admin/<?=$link;?>/selesai/<?=$detail->_id;?>" method="post">

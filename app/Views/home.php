@@ -90,7 +90,7 @@
 							</div>
 						</div>    
 					</a>
-					<a href="#" class="card h-auto" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+					<!-- <a href="#" class="card h-auto" >
 						<div class="d-flex align-items-center">
 							<img src="/assets/images/welcome/wlc-3.svg" width="77px" alt="">
 							<div class="ms-4">
@@ -98,27 +98,9 @@
 								<p>Klik disini melihat</p>
 							</div>
 						</div>    
-					</a>
+					</a> -->
 				</div>
-                                    <div class="modal fade" id="exampleModalCenter">                                        
-                                    <div class="modal-dialog modal-lg">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title">Pengurusan Santunan Jasa Raharja BEBAS BIAYA</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal">
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">  
-<img src="/assets/images/santunan.jpeg" width="100%"> 
-<img src="/assets/images/syarat.jpeg" width="100%">
-
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Tutup</button> 
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
 			</div>
 		</div>
 	</div>
