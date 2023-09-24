@@ -86,7 +86,7 @@
                     <div class="collapse navbar-collapse justify-content-between">
                         <div class="header-left">
                             <div class="dashboard_bar">
-                                <?=$judul;?>
+                                <?php echo $judul; ?>
                             </div>
                         </div>
 
@@ -183,7 +183,7 @@
                                 <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown">
                                     <img src="/assets/images/fav-icon-jr.png" width="20" alt="" />
                                     <div class="header-info">
-                                        <span class="text-black"><?=$username;?></span>
+                                        <span class="text-black"><?php echo $username; ?></span>
                                         <p class="fs-12 mb-0">PENA MAS</p>
                                     </div>
                                 </a>
@@ -265,9 +265,9 @@
                                         <img class="me-3 rounded" width="70" height="70" alt="image"
                                             src="/assets/images/fav-icon-jr.png">
                                         <div class="media-body me-2">
-                                            <h5 class="text-primary mb-0 mt-1"><?=$detail->pelapor;?></h5>
-                                            <p class="mb-0"><?=date('d M Y',strtotime($detail->tgl));?></p>
-                                            <p class="read-content-email"><?=$detail->wa;?></p>
+                                            <h5 class="text-primary mb-0 mt-1"><?php echo $detail->pelapor; ?></h5>
+                                            <p class="mb-0"><?php echo date('d M Y', strtotime($detail->tgl)); ?></p>
+                                            <p class="read-content-email"><?php echo $detail->wa; ?></p>
                                         </div>
                                     </div>
                                     <div class="clearfix mb-3">
@@ -288,12 +288,12 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <p>Anda yakin makan menghapus data dari <?=$detail->pelapor;?>?</p>
+                                                    <p>Anda yakin makan menghapus data dari <?php echo $detail->pelapor; ?>?</p>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-danger light"
                                                         data-bs-dismiss="modal">Close</button>
-                                                    <a href="../hapus/<?=$detail->_id;?>"
+                                                    <a href="../hapus/<?php echo $detail->_id; ?>"
                                                         class="btn btn-danger">Hapus</a>
                                                 </div>
                                             </div>
@@ -304,48 +304,49 @@
                                 <div class="media mb-2 mt-3">
                                     <div class="media-body">
                                         <!-- <span class="pull-end">07:23 AM</span> -->
-                                        <h3 class="my-1 text-primary"><?=$detail->jenis;?></h3>
+                                        <h3 class="my-1 text-primary"><?php echo $detail->jenis; ?></h3>
 
                                     </div>
                                 </div>
                                 <div class="read-content-body">
                                     <h5 class="mb-4">Halo Pena Mas,</h5>
-                                    <p class="mb-2">Telah terjadi kecelakaan <?=$detail->jenis;?> di <?=$detail->lokasi;?>. Korban bernama <?=$detail->korban;?>. Saat ini korban dilarikan di <?=$detail->rs;?>. Terima kasih</p>
+                                    <p class="mb-2">Telah terjadi kecelakaan <?php echo $detail->jenis; ?> di <?php echo $detail->lokasi; ?>. Korban bernama <?php echo $detail->korban; ?>. Saat ini korban dilarikan di <?php echo $detail->rs; ?>. Terima kasih</p>
                                     <h5 class="pt-3">Salam</h5>
-                                    <p><?=$detail->pelapor;?></p>
+                                    <p><?php echo $detail->pelapor; ?></p>
                                     <hr>
                                 </div>
                                 <div class="read-content-attachment">
-                                    <?php $lampirane=explode(',',$detail->lampiran); ?>
+                                    <?php $lampirane = explode(',', $detail->lampiran); ?>
                                     <h6><i class="fa fa-download mb-2"></i> Lampiran
-                                        <span>(<?=count($lampirane);?>)</span>
+                                        <span>(<?php echo count($lampirane); ?>)</span>
                                     </h6>
                                     <div class="row attachment">
 
                                         <div class="col-auto" id="lightgallery">
-                                            <?php foreach($lampirane as $iteme){?>
-                                                <a href="/resources/<?=$iteme;?>"
-                                                    data-exthumbimage="/resources/<?=$iteme;?>"
-                                                    data-src="/resources/<?=$iteme;?>" class="text-muted"><img src="/resources/<?=$iteme;?>" alt="" class="w-25" /> </a> | 
+                                            <?php foreach ($lampirane as $iteme) {?>
+                                                <a href="/resources/<?php echo $iteme; ?>"
+                                                    data-exthumbimage="/resources/<?php echo $iteme; ?>"
+                                                    data-src="/resources/<?php echo $iteme; ?>" class="text-muted"><img src="/resources/<?php echo $iteme; ?>" alt="" class="w-25" /> </a> | 
                                             <?php }?>
                                         </div>
                                     </div>
                                 </div>
                                 <hr>
-                                <?php if($detail->status==2){?> 
+                                <?php if ($detail->status == 2) {?> 
+                                    <hr>
                                 <div class="read-content-body">
-                                    <h5 class="mb-4">Histori</h5>
-                                    <?php foreach($pesan as $isine){?>
-                                        <p class="mb-2"><?=$isine->pesan;?></p>
+                                    <h5 class="mb-4">History</h5>
+                                    <?php foreach ($pesan as $isine) {?> 
+                                        <p class="mb-1"><?php echo date('d/m/Y h:i', $isine->tgl); ?> - <?php echo $isine->pesan; ?></p>
                                     <hr>
                                     <?php }?>
                                     
                                 </div>
                                 <?php }?>
 
-                                <?php if($detail->status==1){?>                                
+                                <?php if ($detail->status == 1) {?>                                
                                     <div class="mb-3 pt-3">
-                                <form action="/admin/<?=$link;?>/selesai/<?=$detail->_id;?>" method="post">
+                                <form action="/admin/<?php echo $link; ?>/selesai/<?php echo $detail->_id; ?>" method="post">
                                     <textarea name="pesan" id="write-email" cols="30" rows="5" class="form-control" placeholder="Kirim pesan wa ke user"></textarea>
                                 </div>
                                     <div class="text-end">
@@ -355,8 +356,8 @@
                                     <?php }?>
                             </div>
                             <div class="text-end">
-                                <?php if($detail->status==0){?>
-                                <a href="/admin/<?=$link;?>/proses/<?=$detail->_id;?>" class="btn btn-primary " type="button">Proses</a>
+                                <?php if ($detail->status == 0) {?>
+                                <a href="/admin/<?php echo $link; ?>/proses/<?php echo $detail->_id; ?>" class="btn btn-primary " type="button">Proses</a>
                                 <?php }?>
                             </div>
                         </div>

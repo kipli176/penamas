@@ -287,20 +287,21 @@
                                                     </span>  
                                                         <?php }else{?>
                                                     <span class="badge dark badge-primary">
-														<i class="fa fa-check text-primary me-1"></i>
+														<i class="fa fa-check text-danger me-1"></i>
 														<?='Selesai';?>  
                                                     </span>  
                                                         <?php }?>
 												</td>
 												<td>
 													<div class="dropdown ms-auto text-end">
-														<div class="btn-link" data-bs-toggle="dropdown">
+														<a title="Lihat Detail" href="/admin/aspirasi/detail/<?=$item->_id;?>" class="btn btn-success shadow btn-sm sharp">Lihat <i class="fa fa-eye"></i> </a>
+														<!-- <div class="btn-link" data-bs-toggle="dropdown">
 															<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
 														</div>
 														<div class="dropdown-menu dropdown-menu-end"> 
 															<a class="dropdown-item" href="/admin/aspirasi/detail/<?=$item->_id;?>">Lihat Detail</a>
-															<!-- <a class="dropdown-item" href="/admin/aspirasi/notif/<?=$item->wa;?>">Kirim Notifikasi</a>  -->
-														</div>
+															<a class="dropdown-item" href="/admin/aspirasi/notif/<?=$item->wa;?>">Kirim Notifikasi</a> 
+														</div> -->
 													</div>
 												</td>
                                             </tr>

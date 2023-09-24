@@ -291,7 +291,7 @@
                                                     </span>  
                                                         <?php }else{?>
                                                     <span class="badge dark badge-primary">
-														<i class="fa fa-check text-primary me-1"></i>
+														<i class="fa fa-check text-danger me-1"></i>
 														<?='Selesai';?>  
                                                     </span>  
                                                         <?php }?>
