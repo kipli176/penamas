@@ -247,7 +247,7 @@ function kirimPesan($a,$b){
     
     $curl = curl_init();
     curl_setopt_array($curl, array(
-    CURLOPT_URL => 'http://185.205.244.115:3333/message/text?key=kiplinet',
+    CURLOPT_URL => 'http://185.205.244.115:3333/message/text?key=penamas',
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => '',
     CURLOPT_MAXREDIRS => 10,
