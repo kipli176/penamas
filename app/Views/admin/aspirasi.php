@@ -272,7 +272,7 @@
                                             <tr> 
                                                 <td>#AS<?php echo $item->kode; ?></td> 
                                                 <td><?php echo '62'.substr(substr_replace($item->wa, 'xxxxx', -6), 1); ?></td>
-												<td><?php echo date('d/m/Y', strtotime($item->tgl)); ?></td>
+												<td><?php echo date('d/m/Y', $item->tgl); ?></td>
                                                 <td><?php echo $item->nama; ?></td>
                                                 <td><?php echo $item->judul; ?></td>
                                                 <td><?php echo $item->lokasi; ?></td>

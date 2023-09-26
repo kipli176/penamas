@@ -23,7 +23,6 @@ class Aspirasi extends BaseController
             'isi'   => ['label' => 'Isi', 'rules' => 'required|min_length[3]|max_length[1000]'],
             'nama'  => ['label' => 'Nama', 'rules' => 'required|min_length[3]|max_length[100]'],
             'wa'    => ['label' => 'No WA', 'rules' => 'required|min_length[3]|max_length[13]'],
-            'tgl'   => ['label' => 'Tanggal Kejadian', 'rules' => 'required|min_length[3]|max_length[250]'],
             'lokasi'=> ['label' => 'Lokasi', 'rules' => 'required|min_length[3]|max_length[250]']
         ];
 
@@ -33,7 +32,7 @@ class Aspirasi extends BaseController
                         'isi'=>$this->request->getPost('isi'),
                         'nama'=>$this->request->getPost('nama'),
                         'wa'=>$this->request->getPost('wa'),
-                        'tgl'=>$this->request->getPost('tgl'),
+                        'tgl'=>time(),
                         'lokasi'=>$this->request->getPost('lokasi'), 
                         'kode'=>date('mdis'),
                         'status'=>0,

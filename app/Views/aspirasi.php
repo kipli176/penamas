@@ -103,10 +103,7 @@
 				</div>
 				<div class="input-group">
 					<input type="text" placeholder="No WA" name="wa" class="form-control" value="<?php echo set_value('wa'); ?>">
-				</div>
-				<div class="input-group">
-                    <input type="text" id="tgle" placeholder="Tgl Kejadian" name="tgl" class="form-control" value="<?php echo set_value('tgl'); ?>">
-				</div>  
+				</div> 
 				<div class="input-group">
                     <select class="form-control dropdown-groups" name="lokasi"> 
                         <option></option>
