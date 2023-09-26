@@ -71,7 +71,7 @@
                         </a>
                     </div>
                     <div class="mid-content">
-                         <div class="divider border-warning inner-divider text-danger right mb-0"><span><a data-bs-toggle="modal" data-bs-target="#exampleModalCentere" class="blink text-white" href="#"><h6 class="text-white">Informasi Santunan</h6></a></span></div>
+                         <div class="divider border-warning inner-divider text-danger right mb-0"><span><a data-bs-toggle="modal" data-bs-target="#exampleModalCentere" class="blink text-white" href="#"><h6 class="text-white">INFORMASI SANTUNAN</h6></a></span></div>
                     </div>
                 </div>
             </div>
