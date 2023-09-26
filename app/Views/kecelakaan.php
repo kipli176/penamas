@@ -71,7 +71,7 @@
                         </a>
                     </div>
                     <div class="mid-content">
-                         <div class="divider border-warning inner-divider text-danger right mb-0"><span><a data-bs-toggle="modal" data-bs-target="#exampleModalCentere" class="blink text-white" href="#">Informasi Santunan ></a></span></div>
+                         <div class="divider border-warning inner-divider text-danger right mb-0"><span><a data-bs-toggle="modal" data-bs-target="#exampleModalCentere" class="blink text-white" href="#"><h6 class="text-white">Informasi Santunan</h6></a></span></div>
                     </div>
                 </div>
             </div>
@@ -82,16 +82,16 @@
         <?php if (isset($errors) && !empty($errors)) {?>                
                 <div class="alert alert-danger solid alert-dismissible fade show">
                                 <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="me-2"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
-                                <strong>Error!</strong> <?php 
-                                foreach ($errors as $error) :
-						            echo '<br>'.esc($error);
-					            endforeach;?>
+                                <strong>Error!</strong> <?php
+                                foreach ($errors as $error) {
+                                    echo '<br>'.esc($error);
+                                }?>
                                 <button class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
                                     <i class="fa-solid fa-xmark"></i>
                                 </button>
                             </div>
             <?php }?> 
-            <?php echo form_open('kecelakaan/add',['enctype' => 'multipart/form-data']);?>
+            <?php echo form_open('kecelakaan/add', ['enctype' => 'multipart/form-data']); ?>
 				<div class="input-group">
 					<input type="text" placeholder="Nama Pelapor" name="pelapor" value="<?php echo set_value('pelapor'); ?>" class="form-control" required>
 				</div>
@@ -109,8 +109,8 @@
                     <option></option>
                         <option value='Lainnya'>Lainnya</option>
                         
-                            <?php foreach($rs as $rse){?>
-                        <option value='<?=$rse->rs;?>'><?=$rse->rs;?></option>
+                            <?php foreach ($rs as $rse) {?>
+                        <option value='<?php echo $rse->rs; ?>'><?php echo $rse->rs; ?></option>
                         <?php }?>
 
                     </select>
@@ -227,7 +227,7 @@
 <script src="/assets/js/settings.js"></script>
 <script src="/assets/js/custom.js"></script>
 <script src="/assets/vendor/imageuplodify/imageuploadify.min.js"></script> 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdu9gXgc3X1zN0ENhSb6fh4me9aEslKHI&libraries=&v=weekly&callback=initMap" defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdu9gXgc3X1zN0ENhSb6fh4me9aEslKHI&libraries=&v=weekly&callback=initMapTambahPelanggan" defer></script>
 <script src="/admine/vendor/select2/js/select2.full.min.js"></script> 
 <script>
     
