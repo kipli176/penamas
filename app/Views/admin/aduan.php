@@ -177,7 +177,7 @@
                                 <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown">
                                     <img src="/assets/images/fav-icon-jr.png" width="20" alt=""/>
 									<div class="header-info">
-										<span class="text-black"><?=$username;?></span>
+										<span class="text-black"><?php echo $username; ?></span>
 										<p class="fs-12 mb-0">PENA MAS</p>
 									</div>
                                 </a>
@@ -267,40 +267,40 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                             <?php foreach($aduan as $item){?>
+                                             <?php foreach ($aduan as $item) {?>
                                             <tr>
-                                                <td>#AD<?=$item->kode;?></td> 
-                                                <!-- <td><?='62' . substr(substr_replace($item->wa,"xxxxx",-6), 1);?></td> -->
-												<td><?=date('d/m/Y',strtotime($item->tgl));?></td>
-                                                <td><?=$item->nama;?></td>
-                                                <td><?=$item->judul;?></td>
-                                                <td><?=$item->lokasi;?></td>
+                                                <td>#AD<?php echo $item->kode; ?></td> 
+                                                <!-- <td><?php echo '62'.substr(substr_replace($item->wa, 'xxxxx', -6), 1); ?></td> -->
+												<td><?php echo date('d/m/Y', strtotime($item->tgl)); ?></td>
+                                                <td><?php echo $item->nama; ?></td>
+                                                <td><?php echo $item->judul; ?></td>
+                                                <td><?php echo $item->lokasi; ?></td>
 												<td>
-                                                    <?php if($item->status==0){?>
+                                                    <?php if ($item->status == 0) {?>
 													<span class="badge light badge-warning">
 														<i class="fa fa-circle text-warning me-1"></i>
-														<?='Baru';?>
-													</span><?php }elseif($item->status==1){?>
+														<?php echo 'Baru'; ?>
+													</span><?php } elseif ($item->status == 1) {?>
                                                     <span class="badge light badge-success">
 														<i class="fa fa-play text-success me-1"></i>
-														<?='Diproses';?>  
+														<?php echo 'Diproses'; ?>  
                                                     </span>  
-                                                        <?php }else{?>
+                                                        <?php } else {?>
                                                     <span class="badge dark badge-primary">
 														<i class="fa fa-check text-danger me-1"></i>
-														<?='Selesai';?>  
+														<?php echo 'Selesai'; ?>  
                                                     </span>  
                                                         <?php }?>
 												</td>
 												<td>
 													<div class="dropdown ms-auto text-end">
-														<a title="Lihat Detail" href="/admin/aduan/detail/<?=$item->_id;?>" class="btn btn-success shadow btn-sm sharp">Lihat <i class="fa fa-eye"></i> </a>
+														<a title="Lihat Detail" href="/admin/aduan/detail/<?php echo $item->_id; ?>" class="badge light badge-success">Lihat <i class="fa fa-eye"></i> </a>
 														<!-- <div class="btn-link" data-bs-toggle="dropdown">
 															<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
 														</div>
 														<div class="dropdown-menu dropdown-menu-end"> 
-															<a class="dropdown-item" href="/admin/aduan/detail/<?=$item->_id;?>">Lihat Detail</a>
-															 <a class="dropdown-item" href="/admin/aduan/notif/<?=$item->wa;?>">Kirim Notifikasi</a>  
+															<a class="dropdown-item" href="/admin/aduan/detail/<?php echo $item->_id; ?>">Lihat Detail</a>
+															 <a class="dropdown-item" href="/admin/aduan/notif/<?php echo $item->wa; ?>">Kirim Notifikasi</a>  
 														</div> -->
 													</div>
 												</td>
