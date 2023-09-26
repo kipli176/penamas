@@ -28,7 +28,7 @@ class Aspirasi extends BaseController
         $data['link'] = 'aspirasi';
         $data['pesan'] = getPesan($id);
         // $data['aduan']=getAll('aduan');
-        return view('admin/view', $data);
+        return view('admin/view3', $data);
     }
 
     public function proses($id)
