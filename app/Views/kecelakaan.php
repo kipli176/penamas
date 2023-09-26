@@ -379,7 +379,8 @@
                 } else {
                     markerTambahPelanggan.setPosition(clickedLocation);
                 }
-                markerLocation(markerTambahPelanggan, 'inputLat', 'inputLng');showInfo(this.position);
+                markerLocation(markerTambahPelanggan, 'inputLat', 'inputLng');
+                //showInfo(this.position);
             });
             
         }
