@@ -27,6 +27,7 @@ class Aspirasi extends BaseController
         $data['detail'] = getId('aspirasi', $id);
         $data['link'] = 'aspirasi';
         $data['pesan'] = getPesan($id);
+
         // $data['aduan']=getAll('aduan');
         return view('admin/view3', $data);
     }
@@ -37,10 +38,15 @@ class Aspirasi extends BaseController
         $session = session();
         prosesId('aspirasi', $id);
         $get = getId('aspirasi', $id);
-        kirimPesan($get->wa, 'Terima Kasih Bapak/Ibu *'.$get->nama.'*. 
+        kirimPesan($get->wa, '*_This is an auto generated message, please do not reply._*
+        
+Terima Kasih '.$get->jk.' *'.$get->nama.'*
 Laporan anda dengan nomor *#AS'.$get->kode.'* sudah kami terima dan sedang dalam proses review.
 Kami akan segera menghubungi anda kembali.
+
+
 Salam, 
+
 Jasa Raharja');
 
         return redirect()->to('/admin/aspirasi');
@@ -60,7 +66,10 @@ Jasa Raharja');
         $get = getId('aspirasi', $id);
         // $data['aduan']=getAll('aduan');
         $isi = $pesane.'
+
+
 Salam, 
+
 Jasa Raharja';
         saveData('pesan', ['pesan' => $pesane, 'idne' => $get->_id, 'tgl' => time()]);
         kirimPesan($get->wa, $isi);

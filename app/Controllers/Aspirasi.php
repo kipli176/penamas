@@ -32,6 +32,7 @@ class Aspirasi extends BaseController
                         'isi'=>$this->request->getPost('isi'),
                         'nama'=>$this->request->getPost('nama'),
                         'wa'=>$this->request->getPost('wa'),
+                        'jk'=>$this->request->getPost('jk'),
                         'tgl'=>time(),
                         'lokasi'=>$this->request->getPost('lokasi'), 
                         'kode'=>date('mdis'),
@@ -39,10 +40,15 @@ class Aspirasi extends BaseController
                         'date_created'=>date('Y-m-d')
                     ];
                     $simpan=saveData('aspirasi',$data);
-                    kirimPesan($data["wa"],'Terimakasih Bapak/Ibu *'.$data["nama"].'*
+                    kirimPesan($data["wa"],'*_This is an auto generated message, please do not reply._*
+
+Terimakasih '.$data["jk"].' *'.$data["nama"].'*
 Laporan anda dengan nomor *#AS'.$data["kode"].'* sudah kami terima dan sedang kami proses. 
 Kami akan segera menghubungi anda kembali dalam waktu maksimal 1x24 jam.
+
+
 Salam, 
+
 Jasa Raharja');
                     echo view('sukses', ['success' => 'Aspirasi anda telah dikirim.']); 
         }else{ 

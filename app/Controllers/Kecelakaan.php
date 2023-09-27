@@ -105,6 +105,7 @@ class Kecelakaan extends BaseController
                         'pelapor'=>$this->request->getPost('pelapor'),
                         'korban'=>$this->request->getPost('korban'),
                         'wa'=>$this->request->getPost('wa'),
+                        'jk'=>$this->request->getPost('jk'),
                         'tgl'=>$this->request->getPost('tgl'),
                         'lokasi'=>$this->request->getPost('lokasi'),
                         'jenis'=>$this->request->getPost('jenis'),
@@ -117,10 +118,15 @@ class Kecelakaan extends BaseController
                         'date_created'=>date('Y-m-d')
                     ];
                     $simpan=saveData('kecelakaan',$data);
-                    kirimPesan($data["wa"],'Terimakasih Bapak/Ibu *'.$data["pelapor"].'*
+                    kirimPesan($data["wa"],'*_This is an auto generated message, please do not reply._*
+
+Terimakasih '.$data["jk"].' *'.$data["pelapor"].'*
 Laporan anda dengan nomor *#LK'.$data["kode"].'* sudah kami terima dan sedang kami proses. 
 Kami akan segera menghubungi anda kembali dalam waktu maksimal 1x24 jam.
+
+
 Salam, 
+
 Jasa Raharja');
                     echo view('sukses', ['success' => 'Laporan anda telah dikirim.']); 
                 // }

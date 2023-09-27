@@ -95,6 +95,10 @@
 				<div class="input-group">
 					<input type="text" placeholder="Nama Pelapor" name="pelapor" value="<?php echo set_value('pelapor'); ?>" class="form-control" required>
 				</div>
+                <div class="input-group ">
+                    <label class="radio-inline me-3"><input type="radio" name="jk" value="Bapak"> Laki-laki</label>
+                    <label class="radio-inline me-3"><input type="radio" name="jk" value="Ibu"> Perempuan</label>                                            
+                </div>
 				<div class="input-group">
 					<input type="text" placeholder="Nama Korban" name="korban" value="<?php echo set_value('korban'); ?>" class="form-control" required>
 				</div>
@@ -105,7 +109,7 @@
                     <input type="text" id="tgle" placeholder="Tgl & Waktu Kejadian" name="tgl" class="form-control" value="<?php echo set_value('tgl'); ?>" required>
 				</div> 
 				<div class="input-group">
-                    <select class="form-control  dropdown-groups" name="rs" required> 
+                    <select id="rsa" class="form-control  dropdown-groups" name="rs" required> 
                     <option></option>
                         <option value='Lainnya'>Lainnya</option>
                         
@@ -116,7 +120,7 @@
                     </select>
 				</div>
 				<div class="input-group">
-					<input type="text" id="rs" placeholder="Masukan nama rumah sakit" name="rs" class="form-control" >
+					<input type="text" id="rsi" placeholder="Masukan nama rumah sakit" name="" class="form-control" >
 				</div>
 				<div class="input-group">
                     <select class="form-control js-example-basic-singles" id="jenis" name="jenis" required> 
@@ -238,14 +242,18 @@
         $('#check').change(function () {
             $('#btncheck').prop("disabled", !this.checked);
         }).change();
-        $("#rs").hide();
+        $("#rsi").hide();
+        $("#rsi").attr('name', 'kosong');
         $(".dropdown-groups").on("change", function() {
             if ($(this).val() === "Lainnya") { 
-                $("#rs").show();
-                $("#rs").prop('required',true);
+                $("#rsi").show();
+                $("#rsa").attr('name', '');
+                $("#rsi").attr('name', 'rs');
+                $("#rsi").prop('required',true);
             }
             else {
-                $("#rs").hide();
+                $("#rsi").hide();
+                $("#rsi").attr('name', 'kosong');
             }
         });
         $('.dropdown-groups').select2({

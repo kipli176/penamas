@@ -76,7 +76,8 @@
 				<div class="clearfix">
 					<h2 class="title text-success">Terimakasih</h2>
 					<p><?php if (isset($success) && strlen($success)) {echo esc($success);}?></p>
-					<p>Dalam waktu 1x24jam, laporan Anda akan diverifikasi dan diteruskan kepada kepala kantor tujuan.</p>
+					<p>Dalam waktu 1x24 Jam, laporan anda akan diverifikasi dan ditindaklanjuti oleh pihak Jasa Raharja, mohon untuk dapat menunggu.</p>
+					<p>Terimakasih.</p>
 				</div>
 			</div>
 		</div>

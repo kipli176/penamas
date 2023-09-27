@@ -101,6 +101,10 @@
 				<div class="input-group">
 					<input type="text" placeholder="Nama Pelapor" name="nama" class="form-control" value="<?php echo set_value('nama'); ?>">
 				</div>
+                <div class="input-group ">
+                    <label class="radio-inline me-3"><input type="radio" name="jk" value="Bapak"> Laki-laki</label>
+                    <label class="radio-inline me-3"><input type="radio" name="jk" value="Ibu"> Perempuan</label>                                            
+                </div>
 				<div class="input-group">
 					<input type="text" placeholder="No WA" name="wa" class="form-control" value="<?php echo set_value('wa'); ?>">
 				</div> 
