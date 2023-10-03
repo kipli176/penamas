@@ -106,6 +106,7 @@ class Aduan extends BaseController
                         'lampiran'=>$lampirane,
                         'kode'=>date('mdis'),
                         'status'=>0,
+                        'notif'=>0,
                         'date_created'=>date('Y-m-d')
                     ];
                     $simpan=saveData('aduan',$data);

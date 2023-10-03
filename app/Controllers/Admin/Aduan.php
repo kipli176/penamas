@@ -30,6 +30,20 @@ class Aduan extends BaseController
         // $data['aduan']=getAll('aduan');
         return view('admin/view', $data);
     }
+    public function detaile($id)
+    {
+        helper(['mongo']);
+        $session = session();
+        // echo "Welcome back, ".$session->get('user_name');
+        $data['judul'] = 'Detail Aduan';
+        $data['username'] = $session->get('user_name');
+        $data['link'] = 'aduan';
+        $data['detail'] = getId('aduan', $id);
+        $data['pesan'] = getPesan($id);
+        updateNotif('aduan',$id);
+        // $data['aduan']=getAll('aduan');
+        return view('admin/view', $data);
+    }
 
     public function proses($id)
     {

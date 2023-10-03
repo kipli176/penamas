@@ -33,10 +33,11 @@ class Aspirasi extends BaseController
                         'nama'=>$this->request->getPost('nama'),
                         'wa'=>$this->request->getPost('wa'),
                         'jk'=>$this->request->getPost('jk'),
-                        'tgl'=>time(),
+                        'tgl'=>date('Y-m-d'),
                         'lokasi'=>$this->request->getPost('lokasi'), 
                         'kode'=>date('mdis'),
                         'status'=>0,
+                        'notif'=>0,
                         'date_created'=>date('Y-m-d')
                     ];
                     $simpan=saveData('aspirasi',$data);

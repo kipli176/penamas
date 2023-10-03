@@ -97,87 +97,20 @@
 										<path d="M9.45251 25.6682C10.0606 27.0357 11.4091 28 13.0006 28C14.5922 28 15.9407 27.0357 16.5488 25.6682C15.4266 25.7231 14.2596 25.76 13.0006 25.76C11.7418 25.76 10.5748 25.7231 9.45251 25.6682Z" fill="#3E4954"/>
 										<path d="M25.3531 19.74C23.8769 17.8785 21.3995 14.2195 21.3995 10.64C21.3995 7.09073 19.1192 3.89758 15.7995 2.72382C15.7592 1.21406 14.5183 0 13.0006 0C11.4819 0 10.2421 1.21406 10.2017 2.72382C6.88095 3.89758 4.60064 7.09073 4.60064 10.64C4.60064 14.2207 2.12434 17.8785 0.647062 19.74C0.154273 20.3616 0.00191325 21.1825 0.240515 21.9363C0.473484 22.6721 1.05361 23.2422 1.79282 23.4595C3.08755 23.8415 5.20991 24.2715 8.44676 24.491C9.84785 24.5851 11.3543 24.64 13.0007 24.64C14.646 24.64 16.1524 24.5851 17.5535 24.491C20.7914 24.2715 22.9127 23.8415 24.2085 23.4595C24.9477 23.2422 25.5268 22.6722 25.7597 21.9363C25.9983 21.1825 25.8448 20.3616 25.3531 19.74Z" fill="#3E4954"/>
 									</svg>
-									<span class="badge light text-white bg-primary rounded-circle">52</span>
+									<span id="count" class="badge light text-white bg-primary rounded-circle">0</span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end">
                                     <div id="DZ_W_Notification1" class="widget-media dz-scroll p-3 height380">
-										<ul class="timeline">
-											<li>
-												<div class="timeline-panel">
-													<div class="media me-2">
-														<img alt="image" width="50" src="/admine/images/avatar/1.jpg">
-													</div>
-													<div class="media-body">
-														<h6 class="mb-1">Dr sultads Send you Photo</h6>
-														<small class="d-block">29 July 2020 - 02:26 PM</small>
-													</div>
-												</div>
-											</li>
-											<li>
-												<div class="timeline-panel">
-													<div class="media me-2 media-info">
-														KG
-													</div>
-													<div class="media-body">
-														<h6 class="mb-1">Resport created successfully</h6>
-														<small class="d-block">29 July 2020 - 02:26 PM</small>
-													</div>
-												</div>
-											</li>
-											<li>
-												<div class="timeline-panel">
-													<div class="media me-2 media-success">
-														<i class="fa fa-home"></i>
-													</div>
-													<div class="media-body">
-														<h6 class="mb-1">Reminder : Treatment Time!</h6>
-														<small class="d-block">29 July 2020 - 02:26 PM</small>
-													</div>
-												</div>
-											</li>
-											 <li>
-												<div class="timeline-panel">
-													<div class="media me-2">
-														<img alt="image" width="50" src="/admine/images/avatar/1.jpg">
-													</div>
-													<div class="media-body">
-														<h6 class="mb-1">Dr sultads Send you Photo</h6>
-														<small class="d-block">29 July 2020 - 02:26 PM</small>
-													</div>
-												</div>
-											</li>
-											<li>
-												<div class="timeline-panel">
-													<div class="media me-2 media-danger">
-														KG
-													</div>
-													<div class="media-body">
-														<h6 class="mb-1">Resport created successfully</h6>
-														<small class="d-block">29 July 2020 - 02:26 PM</small>
-													</div>
-												</div>
-											</li>
-											<li>
-												<div class="timeline-panel">
-													<div class="media me-2 media-primary">
-														<i class="fa fa-home"></i>
-													</div>
-													<div class="media-body">
-														<h6 class="mb-1">Reminder : Treatment Time!</h6>
-														<small class="d-block">29 July 2020 - 02:26 PM</small>
-													</div>
-												</div>
-											</li>
+										<ul id="notif" class="timeline">
 										</ul>
 									</div>
-                                    <a class="all-notification" href="#">See all notifications <i class="ti-arrow-right"></i></a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown header-profile">
                                 <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown">
                                     <img src="/assets/images/fav-icon-jr.png" width="20" alt=""/>
 									<div class="header-info">
-										<span class="text-black"><?=$username;?></span>
+										<span class="text-black"><?php echo $username; ?></span>
 										<p class="fs-12 mb-0">PENA MAS</p>
 									</div>
                                 </a>
@@ -251,8 +184,7 @@
             <div class="container-fluid">
                 <div class="page-titles">
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="javascript:void(0)">Data</a></li>
-						<li class="breadcrumb-item active"><a href="javascript:void(0)">Layanan Aduan</a></li>
+						<li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li> 
 					</ol>
                 </div>
                 <!-- row -->
@@ -264,11 +196,11 @@
 							<div class="card-body  p-4">
 								<div class="media">
 									<span class="me-3">
-										<i class="flaticon-381-calendar-1"></i>
+										<i class="flaticon-381-list"></i>
 									</span>
 									<div class="media-body text-white text-end">
-										<p class="mb-1">Data Aduan</p>
-										<h3 class="text-white">76</h3>
+										<p class="mb-1">Jumlah Data Aduan</p>
+										<h3 class="text-white"><?=$countAduan;?></h3>
 									</div>
 								</div>
 							</div>
@@ -279,11 +211,11 @@
 							<div class="card-body p-4">
 								<div class="media">
 									<span class="me-3">
-										<i class="flaticon-381-diamond"></i>
+										<i class="flaticon-381-idea"></i>
 									</span>
 									<div class="media-body text-white text-end">
-										<p class="mb-1">Data Aspirasi</p>
-										<h3 class="text-white">85</h3>
+										<p class="mb-1">Jumlah Data Aspirasi</p>
+										<h3 class="text-white"><?=$countAspirasi;?></h3>
 									</div>
 								</div>
 							</div>
@@ -294,145 +226,103 @@
 							<div class="card-body p-4">
 								<div class="media">
 									<span class="me-3">
-										<i class="flaticon-381-heart"></i>
+										<i class="flaticon-381-location"></i>
 									</span>
 									<div class="media-body text-white text-end">
-										<p class="mb-1">Laporan Kecelakaan</p>
-										<h3 class="text-white">41</h3>
+										<p class="mb-1">Jumlah Data Kecelakaan</p>
+										<h3 class="text-white"><?=$countKecelakaan;?></h3>
 									</div>
 								</div>
 							</div>
 						</div>
                     </div>
+
+					<div class="col-xl-4 col-xxl-6 col-lg-6">
+                        <div class="card border-0 pb-0">
+                            <div class="card-header border-0 pb-0">
+                                <h4 class="card-title">Aduan Terbaru</h4>
+                            </div>
+                            <div class="card-body"> 
+                                <div id="DZ_W_Todo2" class="widget-media dz-scroll height370">
+                                    <ul class="timeline">
+										<?php foreach($aduan as $item){?>
+                                        <li>
+                                            <div class="timeline-panel">
+												<div class="media me-2">
+												<i class="flaticon-381-list"></i>
+												</div>
+                                                <div class="media-body">
+													<h5 class="mb-1"><?=$item->nama;?></h5>
+													<small class="d-block"><?=date('d-M-Y',strtotime($item->tgl));?></small>
+												</div>
+												<a title="Lihat Detail" href="/admin/aduan/detail/<?=$item->_id;?>" class="badge light badge-success">Lihat <i class="fa fa-eye"></i> </a>
+											</div>
+                                        </li>
+										<?php }?>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+					</div>
+					<div class="col-xl-4 col-xxl-6 col-lg-6">
+                        <div class="card border-0 pb-0">
+                            <div class="card-header border-0 pb-0">
+                                <h4 class="card-title">Aspirasi Terbaru</h4>
+                            </div>
+                            <div class="card-body"> 
+                                <div id="DZ_W_Todo2" class="widget-media dz-scroll height370">
+                                    <ul class="timeline">
+										<?php foreach($aspirasi as $item){?>
+                                        <li>
+                                            <div class="timeline-panel">
+												<div class="media me-2">
+												<i class="flaticon-381-idea"></i>
+												</div>
+                                                <div class="media-body">
+													<h5 class="mb-1"><?=$item->nama;?></h5>
+													<small class="d-block"><?=date('d-M-Y',strtotime($item->tgl));?></small>
+												</div>
+												<a title="Lihat Detail" href="/admin/aspirasi/detail/<?=$item->_id;?>" class="badge light badge-success">Lihat <i class="fa fa-eye"></i> </a>
+											</div>
+                                        </li>
+										<?php }?>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+					</div>
+					<div class="col-xl-4 col-xxl-6 col-lg-6">
+                        <div class="card border-0 pb-0">
+                            <div class="card-header border-0 pb-0">
+                                <h4 class="card-title">Kecelakaan Terbaru</h4>
+                            </div>
+                            <div class="card-body"> 
+                                <div id="DZ_W_Todo2" class="widget-media dz-scroll height370">
+                                    <ul class="timeline">
+										<?php foreach($kecelakaan as $item){?>
+                                        <li>
+                                            <div class="timeline-panel">
+												<div class="media me-2">
+												<i class="flaticon-381-location"></i>
+												</div>
+                                                <div class="media-body">
+													<h5 class="mb-1"><?=$item->pelapor;?></h5>
+													<small class="d-block"><?=date('d-M-Y',strtotime($item->tgl));?></small>
+												</div>
+												<a title="Lihat Detail" href="/admin/kecelakaan/detail/<?=$item->_id;?>" class="badge light badge-success">Lihat <i class="fa fa-eye"></i> </a>
+											</div>
+                                        </li>
+										<?php }?>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+					</div>
     			</div>
 
 
 
-                <!-- <div class="row"> 
-					<div class="col-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 class="card-title">Laporan</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table id="example5" class="display table-responsive-lg">
-                                        <thead>
-                                            <tr>
-                                                <th>
-													<div class="custom-control custom-checkbox">
-														<input type="checkbox" class="custom-control-input" id="checkAll" required="">
-														<label class="custom-control-label" for="checkAll"></label>
-													</div>
-												</th>
-                                                <th>Order ID</th>
-                                                <th>Date Check in</th>
-                                                <th>Name</th> 
-                                                <th>Status</th>
-                                                <th>Table no</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                             
-                                            <tr>
-												<td>
-													<div class="custom-control custom-checkbox">
-														<input type="checkbox" class="custom-control-input" id="customCheckBox7" required="">
-														<label class="custom-control-label" for="customCheckBox7"></label>
-													</div>
-												</td>
-                                                <td>#P-00006</td>
-                                                <td>28/02/2020, 12:42 AM</td>
-												<td>Ashton Cox</td> 
-												<td>
-													<span class="badge light badge-warning">
-														<i class="fa fa-circle text-warning me-1"></i>
-														In Treatment
-													</span>
-												</td>
-                                                <td>AB-006</td>
-												<td>
-													<div class="dropdown ms-auto text-end">
-														<div class="btn-link" data-bs-toggle="dropdown">
-															<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
-														</div>
-														<div class="dropdown-menu dropdown-menu-end">
-															<a class="dropdown-item" href="#">Accept Patient</a>
-															<a class="dropdown-item" href="#">Reject Order</a>
-															<a class="dropdown-item" href="#">View Details</a>
-														</div>
-													</div>
-												</td>
-                                            </tr>
-                                            <tr>
-												<td>
-													<div class="custom-control custom-checkbox">
-														<input type="checkbox" class="custom-control-input" id="customCheckBox8" required="">
-														<label class="custom-control-label" for="customCheckBox8"></label>
-													</div>
-												</td>
-                                                <td>#P-00007</td>
-                                                <td>26/02/2020, 12:42 AM</td>
-												<td>Airi Satou</td> 
-                                                <td>
-													<span class="badge light badge-danger">
-														<i class="fa fa-circle text-danger me-1"></i>
-														New Patient
-													</span>
-												</td>
-                                                <td>AB-007</td>
-                                                <td>
-													<div class="dropdown ms-auto text-end">
-														<div class="btn-link" data-bs-toggle="dropdown">
-															<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
-														</div>
-														<div class="dropdown-menu dropdown-menu-end">
-															<a class="dropdown-item" href="#">Accept Patient</a>
-															<a class="dropdown-item" href="#">Reject Order</a>
-															<a class="dropdown-item" href="#">View Details</a>
-														</div>
-													</div>
-												</td>
-                                            </tr>
-                                            <tr>
-												<td>
-													<div class="custom-control custom-checkbox">
-														<input type="checkbox" class="custom-control-input" id="customCheckBox9" required="">
-														<label class="custom-control-label" for="customCheckBox9"></label>
-													</div>
-												</td>
-                                                <td>#P-00008</td>
-                                                <td>29/02/2020, 12:42 AM</td>
-												<td>Airi Satou</td> 
-                                                <td>
-													<span class="badge light badge-warning">
-														<i class="fa fa-circle text-warning me-1"></i>
-														In Treatment
-													</span>
-												</td>
-                                                <td>AB-008</td>
-                                                <td>
-													<div class="dropdown ms-auto text-end">
-														<div class="btn-link" data-bs-toggle="dropdown">
-															<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
-														</div>
-														<div class="dropdown-menu dropdown-menu-end">
-															<a class="dropdown-item" href="#">Accept Patient</a>
-															<a class="dropdown-item" href="#">Reject Order</a>
-															<a class="dropdown-item" href="#">View Details</a>
-														</div>
-													</div>
-												</td>
-                                            </tr>
-                                             
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-				</div> -->
+                
             </div>
         </div>
         <!--**********************************
@@ -481,5 +371,50 @@
 	<script src="/admine/js/deznav-init.js"></script>
 	<!-- <script src="./js/demo.js"></script> -->
     <!-- <script src="./js/styleSwitcher.js"></script> -->
+	<script> 
+    $.ajax({
+        dataType: "json",
+        url: "/admin/dashboard/notifAduan",
+        success: function (data) {
+			if(data.count > 0)
+			{
+            $('#notif').append(data.notification);
+				var ca=$('#count').text();
+				var ad=parseInt(data.count)+parseInt(ca);
+				$('#count').html(ad);
+			}
+
+        }
+    });
+    $.ajax({
+        dataType: "json",
+        url: "/admin/dashboard/notifAspirasi",
+        success: function (data) {
+			if(data.count > 0)
+			{
+            $('#notif').append(data.notification);
+				var ca=$('#count').text();
+				var ad=parseInt(data.count)+parseInt(ca);
+				$('#count').html(ad);
+			}
+
+        }
+    });
+    $.ajax({
+        dataType: "json",
+        url: "/admin/dashboard/notifKecelakaan",
+        success: function (data) {
+			if(data.count > 0)
+			{
+            $('#notif').append(data.notification);
+				var ca=$('#count').text();
+				var ad=parseInt(data.count)+parseInt(ca);
+				$('#count').html(ad);
+			}
+
+        }
+    });
+
+		</script>
 </body>
 </html>

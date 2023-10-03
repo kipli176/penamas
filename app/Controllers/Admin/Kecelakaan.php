@@ -32,6 +32,22 @@ class Kecelakaan extends BaseController
         return view('admin/view2', $data);
     }
 
+    public function detaile($id)
+    {
+        helper(['mongo']);
+        $session = session();
+        // echo "Welcome back, ".$session->get('user_name');
+        $data['judul'] = 'Detail Kecelakaan';
+        $data['username'] = $session->get('user_name');
+        $data['detail'] = getId('kecelakaan', $id);
+        $data['pesan'] = getPesan($id);
+        $data['link'] = 'kecelakaan';
+        updateNotif('kecelakaan',$id);
+
+        // $data['aduan']=getAll('aduan');
+        return view('admin/view2', $data);
+    }
+
     public function proses($id)
     {
         helper(['mongo']);

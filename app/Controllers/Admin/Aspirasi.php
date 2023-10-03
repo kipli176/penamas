@@ -31,6 +31,21 @@ class Aspirasi extends BaseController
         // $data['aduan']=getAll('aduan');
         return view('admin/view3', $data);
     }
+    public function detaile($id)
+    {
+        helper(['mongo']);
+        $session = session();
+        // echo "Welcome back, ".$session->get('user_name');
+        $data['judul'] = 'Detail Aspirasi';
+        $data['username'] = $session->get('user_name');
+        $data['detail'] = getId('aspirasi', $id);
+        $data['link'] = 'aspirasi';
+        $data['pesan'] = getPesan($id);
+        updateNotif('aspirasi',$id);
+
+        // $data['aduan']=getAll('aduan');
+        return view('admin/view3', $data);
+    }
 
     public function proses($id)
     {
