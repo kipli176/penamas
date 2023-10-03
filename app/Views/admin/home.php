@@ -370,51 +370,6 @@
     <script src="/admine/js/custom.min.js"></script>
 	<script src="/admine/js/deznav-init.js"></script>
 	<!-- <script src="./js/demo.js"></script> -->
-    <!-- <script src="./js/styleSwitcher.js"></script> -->
-	<script> 
-    $.ajax({
-        dataType: "json",
-        url: "/admin/dashboard/notifAduan",
-        success: function (data) {
-			if(data.count > 0)
-			{
-            $('#notif').append(data.notification);
-				var ca=$('#count').text();
-				var ad=parseInt(data.count)+parseInt(ca);
-				$('#count').html(ad);
-			}
-
-        }
-    });
-    $.ajax({
-        dataType: "json",
-        url: "/admin/dashboard/notifAspirasi",
-        success: function (data) {
-			if(data.count > 0)
-			{
-            $('#notif').append(data.notification);
-				var ca=$('#count').text();
-				var ad=parseInt(data.count)+parseInt(ca);
-				$('#count').html(ad);
-			}
-
-        }
-    });
-    $.ajax({
-        dataType: "json",
-        url: "/admin/dashboard/notifKecelakaan",
-        success: function (data) {
-			if(data.count > 0)
-			{
-            $('#notif').append(data.notification);
-				var ca=$('#count').text();
-				var ad=parseInt(data.count)+parseInt(ca);
-				$('#count').html(ad);
-			}
-
-        }
-    });
-
-		</script>
+    <!-- <script src="./js/styleSwitcher.js"></script> --> 
 </body>
 </html>
