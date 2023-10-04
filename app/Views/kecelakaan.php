@@ -198,8 +198,8 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">  
-													<img src="/assets/images/santunan.jpg" width="100%"> 
-													<img src="/assets/images/syarat.jpg" width="100%">
+													<img src="/assets/images/santunan1.png" width="100%"> 
+													<img src="/assets/images/santunan2.png" width="100%">
 
                                                 </div>
                                                 <div class="modal-footer">
