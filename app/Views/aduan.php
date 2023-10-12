@@ -82,16 +82,16 @@
         <?php if (isset($errors) && !empty($errors)) {?>                
                 <div class="alert alert-danger solid alert-dismissible fade show">
                                 <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="me-2"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
-                                <strong>Error!</strong> <?php 
-                                foreach ($errors as $error) :
-						            echo '<br>'.esc($error);
-					            endforeach;?>
+                                <strong>Error!</strong> <?php
+                                foreach ($errors as $error) {
+                                    echo '<br>'.esc($error);
+                                }?>
                                 <button class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
                                     <i class="fa-solid fa-xmark"></i>
                                 </button>
                             </div>
             <?php }?> 
-            <?php echo form_open('aduan/add',['enctype' => 'multipart/form-data']);?>
+            <?php echo form_open('aduan/add', ['enctype' => 'multipart/form-data']); ?>
 				<div class="input-group">
 					<input type="text" placeholder="Judul Laporan" name="judul" value="<?php echo set_value('judul'); ?>" class="form-control">
 				</div>
@@ -114,8 +114,8 @@
 				<div class="input-group">
                     <select class="form-control dropdown-groups" name="lokasi"> 
                         <option></option>
-                        <?php foreach($kantor as $kantore){?>
-                        <option value='<?=$kantore->kantor;?>'><?=$kantore->kantor;?></option>
+                        <?php foreach ($kantor as $kantore) {?>
+                        <option value='<?php echo $kantore->kantor; ?>'><?php echo $kantore->kantor; ?></option>
                         <?php }?>
 
                     </select>
@@ -162,7 +162,7 @@
         <!-- Footer -->
         <footer class="footer fixed">
             <div class="container">
-                <input type="submit" id="btncheck" class="btn btn-primary w-100 btn-rounded" name="submit" value="Kirim">
+                <input type="submit" onclick="var e=this;setTimeout(function(){e.disabled=true;e.text='Loading…';},0);return true;" id="btncheck" class="btn btn-primary w-100 btn-rounded" name="submit" value="Kirim">
             </div>
         </footer>
         <!-- Footer End -->

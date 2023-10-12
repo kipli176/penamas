@@ -212,7 +212,7 @@
         <!-- Footer -->
         <footer class="footer fixed">
             <div class="container">
-                <input type="submit" id="btncheck" class="btn btn-primary w-100 btn-rounded" name="submit" value="Kirim">
+                <input type="submit" onclick="var e=this;setTimeout(function(){e.disabled=true;e.text='Loading…';},0);return true;" id="btncheck" class="btn btn-primary w-100 btn-rounded" name="submit" value="Kirim">
             </div>
         </footer>
         <!-- Footer End -->
