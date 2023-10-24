@@ -91,7 +91,7 @@
 						</div>    
 					</a>
 					<div class="started"> 
-						<a href="/faq">Frequently Asked Question</a>  
+					<a href="/faq" class="blink text-white">- Frequently Asked Question -</a>
 					</div>
 					<!-- <a href="#" class="card h-auto" >
 						<div class="d-flex align-items-center">
