@@ -90,6 +90,9 @@
 							</div>
 						</div>    
 					</a>
+					<div class="started"> 
+						<a href="/faq">Frequently Asked Question</a>  
+					</div>
 					<!-- <a href="#" class="card h-auto" >
 						<div class="d-flex align-items-center">
 							<img src="/assets/images/welcome/wlc-3.svg" width="77px" alt="">
@@ -106,7 +109,7 @@
 	</div>
     <!-- Welcome End -->
 	<!-- PWA Offcanvas -->
-	<div class="offcanvas offcanvas-bottom pwa-offcanvas">
+	<!-- <div class="offcanvas offcanvas-bottom pwa-offcanvas">
 		<div class="container">
 			<div class="offcanvas-body small">
 				<img class="logo" src="/assets/images/fav-icon-jr.png" alt="">
@@ -117,7 +120,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="offcanvas-backdrop pwa-backdrop"></div>
+	<div class="offcanvas-backdrop pwa-backdrop"></div> -->
     
 </div>
 

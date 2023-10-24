@@ -22,7 +22,7 @@
 	<link rel="shortcut icon" type="image/x-icon" sizes="16x16" href="/assets/images/fav-icon-jr.png" />
     
     <!-- Title -->
-	<title>Penamas - Formulir Aspirasi</title>
+	<title>Penamas - FAQ</title>
     
     <!-- Stylesheets -->
     <link href="/assets/vendor/imageuplodify/imageuploadify.min.css" rel="stylesheet">
@@ -52,7 +52,7 @@
             <div class=" container">
                 <div class="dz-info">
                     <span class="location d-block">PENA MAS</span>
-                    <h5 class="title">Form Aspirasi</h5>
+                    <h5 class="title">Frequently Asked Question</h5>
                 </div>
                 <div class="dz-media media-65">
                     <img src="/assets/images/fav-icon-jr.png" alt="">
@@ -71,7 +71,7 @@
                         </a>
                     </div>
                     <div class="mid-content">
-                        <h5 class="mb-0">Aspirasi</h5>
+                        <h5 class="mb-0">Frequently Asked Question</h5>
                     </div>
                 </div>
             </div>
@@ -83,39 +83,39 @@
                 <!-- Column starts -->
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header d-block">
+                        <!-- <div class="card-header d-block">
                             <h5 class="title">Default Accordion</h5>
                             <p class="sub-title mb-0">Default accordion. Add <code>accordion</code> class in root</p>
-                        </div>
+                        </div> -->
                         <div class="card-body">
                             <!-- Default accordion -->
             
-                            <div class="accordion accordion-primary" id="accordion-one">
+                            <div class="accordion accordion-danger" id="accordion-one">
                               <div class="accordion-item">
                                 <div class="accordion-header" id="headingOne" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-controls="collapseOne" aria-expanded="true" role="button">
                                     <span class="accordion-header-icon">
-                                        <i class="fa-solid fa-house me-2"></i>
+                                        <i class="fa-solid fa-star-of-life me-2"></i>
                                     </span>
-                                  <span class="accordion-header-text">Accordion Header One</span>
+                                  <span class="accordion-header-text">Apa itu PENAMAS?</span>
                                   <span class="accordion-header-indicator"></span>
                                 </div>
                                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-bs-parent="#accordion-one" style="">
                                   <div class="accordion-body-text">
-                                     Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                                     Sebuah platform untuk pengaduan dan aspirasi masyarakat
                                   </div>
                                 </div>
                               </div>
                               <div class="accordion-item">
                                 <div class="accordion-header collapsed" id="headingTwo" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-controls="collapseTwo" role="button" aria-expanded="false">
                                     <span class="accordion-header-icon">
-                                        <i class="fa-solid fa-user me-2"></i>
+                                        <i class="fa-solid fa-star-of-life me-2"></i>
                                     </span>
-                                  <span class="accordion-header-text">Accordion Header Two</span>
+                                  <span class="accordion-header-text">Bagaimana cara kerjanya?</span>
                                  <span class="accordion-header-indicator"></span>
                                 </div>
                                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordion-one" style="">
                                   <div class="accordion-body-text">
-                                     Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                                     Anda dapat melaporkan aduan, aspirasi maupun laporan kecelakaan.
                                   </div>
                                 </div>
                               </div>
@@ -124,12 +124,26 @@
                                     <span class="accordion-header-icon">
                                         <i class="fa-solid fa-star-of-life me-2"></i>
                                     </span>
-                                  <span class="accordion-header-text">Accordion Header Three</span>
+                                  <span class="accordion-header-text">Bagaimana cara melaporkan?</span>
                                   <span class="accordion-header-indicator"></span>
                                 </div>
                                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-bs-parent="#accordion-one" style="">
                                   <div class="accordion-body-text">
-                                     Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                                     Anda dapat memilih menu di depan sesuai kebutuhan anda.
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="accordion-item">
+                                <div class="accordion-header collapsed" id="headingFour" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-controls="collapseFour" role="button" aria-expanded="false">
+                                    <span class="accordion-header-icon">
+                                        <i class="fa-solid fa-star-of-life me-2"></i>
+                                    </span>
+                                  <span class="accordion-header-text">Bagaimana melihat laporan saya sudah di tangani?</span>
+                                  <span class="accordion-header-indicator"></span>
+                                </div>
+                                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-bs-parent="#accordion-one" style="">
+                                  <div class="accordion-body-text">
+                                     Setelah anda mengirim aduan, aspirasi maupun laporan kecelakaanm anda akan menerima laporan dari admin kami melalui nomor Whatsapp.
                                   </div>
                                 </div>
                               </div>
@@ -141,10 +155,6 @@
                 
                 
             </div>
-        </div>
-		<!-- Page Content End -->
-        
-		
     </div>    
 </div>
 <!--**********************************
@@ -153,6 +163,5 @@
 <script src="/assets/js/jquery.js"></script>
 <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/assets/js/settings.js"></script>
-<script src="/assets/js/custom.js"></script> 
-</body>
+<script src="/assets/js/custom.js"></script>
 </html>
