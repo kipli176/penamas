@@ -143,7 +143,7 @@
                                 </div>
                                 <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-bs-parent="#accordion-one" style="">
                                   <div class="accordion-body-text">
-                                     Setelah anda mengirim aduan, aspirasi maupun laporan kecelakaanm anda akan menerima laporan dari admin kami melalui nomor Whatsapp.
+                                     Setelah anda mengirim aduan, aspirasi maupun laporan kecelakaan anda akan menerima laporan dari admin kami melalui nomor Whatsapp.
                                   </div>
                                 </div>
                               </div>
