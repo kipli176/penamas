@@ -79,68 +79,87 @@
         <!-- Banner End -->
         
         <div class="container">
-        <div class="row">
-                <!-- Column starts -->
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header d-block">
-                            <h5 class="title">Default Accordion</h5>
-                            <p class="sub-title mb-0">Default accordion. Add <code>accordion</code> class in root</p>
-                        </div>
-                        <div class="card-body">
-                            <!-- Default accordion -->
-            
-                            <div class="accordion accordion-primary" id="accordion-one">
-                              <div class="accordion-item">
-                                <div class="accordion-header" id="headingOne" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-controls="collapseOne" aria-expanded="true" role="button">
-                                    <span class="accordion-header-icon">
-                                        <i class="fa-solid fa-house me-2"></i>
-                                    </span>
-                                  <span class="accordion-header-text">Accordion Header One</span>
-                                  <span class="accordion-header-indicator"></span>
-                                </div>
-                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-bs-parent="#accordion-one" style="">
-                                  <div class="accordion-body-text">
-                                     Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="accordion-item">
-                                <div class="accordion-header collapsed" id="headingTwo" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-controls="collapseTwo" role="button" aria-expanded="false">
-                                    <span class="accordion-header-icon">
-                                        <i class="fa-solid fa-user me-2"></i>
-                                    </span>
-                                  <span class="accordion-header-text">Accordion Header Two</span>
-                                 <span class="accordion-header-indicator"></span>
-                                </div>
-                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordion-one" style="">
-                                  <div class="accordion-body-text">
-                                     Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="accordion-item">
-                                <div class="accordion-header collapsed" id="headingThree" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-controls="collapseThree" role="button" aria-expanded="false">
-                                    <span class="accordion-header-icon">
-                                        <i class="fa-solid fa-star-of-life me-2"></i>
-                                    </span>
-                                  <span class="accordion-header-text">Accordion Header Three</span>
-                                  <span class="accordion-header-indicator"></span>
-                                </div>
-                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-bs-parent="#accordion-one" style="">
-                                  <div class="accordion-body-text">
-                                     Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-                                  </div>
-                                </div>
-                              </div>
+        <?php if (isset($errors) && !empty($errors)) {?>                
+                <div class="alert alert-danger solid alert-dismissible fade show">
+                                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="me-2"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                                <strong>Error!</strong> <?php
+                                foreach ($errors as $error) {
+                                    echo '<br>'.esc($error);
+                                }?>
+                                <button class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </button>
                             </div>
-                        </div>
-                    </div>
+            <?php }?>  
+            <?php echo form_open('aspirasi/add', ['enctype' => 'multipart/form-data']); ?>
+				<div class="input-group">
+					<input type="text" placeholder="Judul Laporan" name="judul" value="<?php echo set_value('judul'); ?>" class="form-control">
+				</div>
+				<div class="input-group">
+                    <textarea class="form-control" name="isi" rows="4" placeholder="Isi Laporan"><?php echo set_value('isi'); ?></textarea>
+				</div>
+				<div class="input-group">
+					<input type="text" placeholder="Nama Pelapor" name="nama" class="form-control" value="<?php echo set_value('nama'); ?>">
+				</div>
+                <div class="input-group ">
+                    <label class="radio-inline me-3"><input type="radio" name="jk" value="Bapak"> Laki-laki</label>
+                    <label class="radio-inline me-3"><input type="radio" name="jk" value="Ibu"> Perempuan</label>                                            
                 </div>
-                
-                
-                
+				<div class="input-group">
+					<input type="text" placeholder="No WA" name="wa" class="form-control" value="<?php echo set_value('wa'); ?>">
+				</div> 
+				<div class="input-group">
+                    <select class="form-control dropdown-groups" name="lokasi"> 
+                        <option></option>
+                        <?php foreach ($kantor as $kantore) {?>
+                        <option value='<?php echo $kantore->kantor; ?>'><?php echo $kantore->kantor; ?></option>
+                        <?php }?>
+                        
+                    </select>
+				</div>
+				 
+                <div class="form-check">
+                                                <input class="form-check-input" id="check" type="checkbox" name="setuju">
+                                                <label class="form-check-label">Saya Setuju dengan <a href="#"  data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Kebijakan Privasi</a></label>
+                                            </div>
+				 
+                <!-- Modal -->
+                                    <div class="modal fade" id="exampleModalCenter">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">PERLINDUNGAN PELAPOR</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal">
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">  
+<ol>
+	<li>1. Perusahaan memiliki komitmen yang jelas dan tidak memihak untuk mendukung dan melindungi semua pelapor yang menginformasikan kejadian pelanggaran yang terjadi di perusahaaan. Pelapor mendapatkan perlindungan antara lain :&nbsp;<br />
+	<br />
+	a. Identitas pelapor dijamin kerahasiannya oleh perusahaan.&nbsp;<br />
+	b. Perusahaan menjamin perlindungan terhadap Pelapor dari segala bentuk ancaman, intimidasi, ataupun tindakan tidak menyenangkan dari pihak manapun selama pelapor menjaga kerahasiaan pelanggaran yang diadukan kepada pihak manapun.&nbsp;<br />
+	c. Perlindungan terhadap pelapor juga berlaku bagi para pihak yang melaksanakan investigasi maupun pihak-pihak yang memberikan informasi terkait dengan pengaduan/penyingkapan tersebut.&nbsp;<br />
+	&nbsp;</li>
+	<li>2. Perlindungan dan jaminan kerahasiaan tidak diberikan kepada Pelapor yang terbukti melakukan pelaporan palsu dan/atau fitnah. Apabila hasil investigasi menyimpulkan dan dapat dibuktikan bahwa pelaporan yang disampaikan mengandung laporan palsu, fitnah, tanpa dasar yang jelas, maka pelapor dapat digugat balik atau dikenai sanksi sesuai dengan peraturan perundang-undangan atau peraturan internal perusahaan.<br />
+	&nbsp;</li>
+	<li>3. Jika laporan yang disampaikan tidak terbukti, maka pengelola sistem pelaporan pelanggaran akan mengenakan sanksi kepada pelapor.</li>
+</ol>
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Tutup</button> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+        <!-- Footer -->
+        <footer class="footer fixed">
+            <div class="container">
+                <input type="submit" onclick="var e=this;setTimeout(function(){e.disabled=true;e.text='Loading…';},0);return true;" id="btncheck" class="btn btn-primary w-100 btn-rounded" name="submit" value="Kirim">
             </div>
+        </footer>
+        <!-- Footer End -->
+        <?php echo form_close(); ?>
         </div>
 		<!-- Page Content End -->
         
@@ -153,6 +172,29 @@
 <script src="/assets/js/jquery.js"></script>
 <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/assets/js/settings.js"></script>
-<script src="/assets/js/custom.js"></script> 
+<script src="/assets/js/custom.js"></script>
+<script src="/assets/vendor/imageuplodify/imageuploadify.min.js"></script> 
+<script src="/admine/vendor/select2/js/select2.full.min.js"></script> 
+<script>
+    $(document).on('select2:open', () => {
+        document.querySelector('.select2-search__field').focus();
+    }); 
+	$(document).ready(function() {
+        $('#check').change(function () {
+        $('#btncheck').prop("disabled", !this.checked);
+        }).change();
+        $('.dropdown-groups').select2({
+        placeholder: "Pilih Kantor",
+        allowClear: true
+        });
+            
+        $('input[type="file"]').imageuploadify();
+            var dtt = document.getElementById('tgle')
+            dtt.onfocus = function (event) {
+            this.type = 'date';
+            this.focus();
+        }
+	})
+</script>
 </body>
 </html>
