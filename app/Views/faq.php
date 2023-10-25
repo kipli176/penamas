@@ -101,7 +101,7 @@
                                 </div>
                                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-bs-parent="#accordion-one" style="">
                                   <div class="accordion-body-text">
-                                     Sebuah platform untuk pengaduan dan aspirasi masyarakat
+                                  Platform yang dapat digunakan masyarakat dalam menyampaikan pengaduan, aspirasi dan laporan kecelakaan terhadap pelayanan Jasa Raharja
                                   </div>
                                 </div>
                               </div>
