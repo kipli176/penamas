@@ -231,7 +231,7 @@
 <script src="/assets/js/settings.js"></script>
 <script src="/assets/js/custom.js"></script>
 <script src="/assets/vendor/imageuplodify/imageuploadify.min.js"></script> 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&libraries=places&callback=initMap" defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2cYNPWZD5xj8mK9BnqWgJplQT8enCmK4&libraries=places&callback=initMap" defer></script>
 <script src="/admine/vendor/select2/js/select2.full.min.js"></script> 
 <script>
     
