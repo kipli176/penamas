@@ -138,7 +138,7 @@
                     <input type="text" id="autocomplete" class="form-control" rows="4" name="lokasi" placeholder="Lokasi Kecelakaan" value="<?php echo set_value('lokasi'); ?>" required>
 				</div> 
 				<div class="form-group">
-                <label for="inputAddress" class="border-bottom w-100 pb-1 mb-3">Google Map - <i class="text-xs">Optional</i></label>
+                <label for="inputAddress" class="border-bottom w-100 pb-1 mb-3">Google Map - <i class="text-xs">diperuntukkan apabila masyarakat/korban mengetahui Lokasi Tempat Kejadian Perkara</i></label>
                 <div class="form-group row">
                   <div class="col-sm-12">
                       <div class="embed-responsive embed-responsive-21by9">
