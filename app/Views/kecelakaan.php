@@ -135,7 +135,7 @@
                     </select>
 				</div>
 				<div class="input-group">
-                    <textarea class="form-control" rows="4" name="lokasi" placeholder="Lokasi Kecelakaan" required><?php echo set_value('lokasi'); ?></textarea>
+                    <input type="text" id="autocomplete" class="form-control" rows="4" name="lokasi" placeholder="Lokasi Kecelakaan" value="<?php echo set_value('lokasi'); ?>" required>
 				</div> 
 				<div class="form-group">
                 <label for="inputAddress" class="border-bottom w-100 pb-1 mb-3">Google Map - <i class="text-xs">Optional</i></label>
@@ -231,7 +231,7 @@
 <script src="/assets/js/settings.js"></script>
 <script src="/assets/js/custom.js"></script>
 <script src="/assets/vendor/imageuplodify/imageuploadify.min.js"></script> 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdu9gXgc3X1zN0ENhSb6fh4me9aEslKHI&libraries=&v=weekly&callback=initMapTambahPelanggan" defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&libraries=places&callback=initMap" defer></script>
 <script src="/admine/vendor/select2/js/select2.full.min.js"></script> 
 <script>
     
@@ -273,173 +273,240 @@
         } 
         // Google Map Tambah Pelanggan
         
-        initMapTambahPelanggan();
+        // initMapTambahPelanggan();
         
 	});
-        let mapTambahPelanggan = false;
-    let markerTambahPelanggan = false;
-    let controlDelMarker = false;
     
-    function showInfo(latlng) {
-      geocoder.geocode({
-        'latLng': latlng
-      }, function(results, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
-          if (results[1]) {
-            // here assign the data to asp lables
-            // document.getElementById('<%=addressStandNo.ClientID %>').value = results[1].formatted_address;
-            alert( results[1].formatted_address);
-          } else {
-            alert('No results found');
-          }
-        } else {
-          alert('Geocoder failed due to: ' + status);
-        }
-      });
-    }
-    function initMapTambahPelanggan() {
-        const image = "https://my.radboox.com/public/upload/files/marker.png";
-        var lat = -2.548926;
-        var lng = 118.0148634;
-        var zoom = 18;
-        var centerOfMap = new google.maps.LatLng(lat, lng);
-        var options = {
-            center: centerOfMap,
-            zoom: zoom,
-            mapTypeControl: true,
-            mapTypeControlOptions: {
-                style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
-                position: google.maps.ControlPosition.TOP_CENTER,
-            },
-            zoomControl: true,
-            streetViewControl: false,
-            styles: [
-                {
-                    "featureType": "poi",
-                    "stylers": [
-                        {
-                            "visibility": "on"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "poi",
-                    "elementType": "geometry",
-                    "stylers": [
-                        {
-                            "visibility": "off"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "poi",
-                    "elementType": "labels",
-                    "stylers": [
-                        {
-                            "visibility": "on"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "poi",
-                    "elementType": "labels.icon",
-                    "stylers": [
-                        {
-                            "visibility": "off"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "poi",
-                    "elementType": "labels.text",
-                    "stylers": [
-                        {
-                            "visibility": "on"
-                        }
-                    ]
-                }
-            ]
-        };
 
-        if (!mapTambahPelanggan) {
-            mapTambahPelanggan = new google.maps.Map(document.getElementById("map"), options);
+ let map;
+ let autocomplete;
+ let marker;
 
-            if (!controlDelMarker) {
-                const centerControlDiv = document.createElement("div");
-                CenterControlTambah(centerControlDiv);
-                mapTambahPelanggan.controls[google.maps.ControlPosition.TOP_LEFT].push(centerControlDiv);
-                controlDelMarker = true;
-            }
+ function initMap() {
+   map = new google.maps.Map(document.getElementById('map'), {
+     zoom: 18
+   });
 
-            mapTambahPelanggan.addListener('click', function (event) {
-                var clickedLocation = event.latLng;
-                if (!markerTambahPelanggan) {
-                    const marker = new google.maps.Marker({
-                        position: clickedLocation,
-                        map: mapTambahPelanggan,
-                        draggable: true,
-                        icon: image
-                    });
-                    markerTambahPelanggan = marker;
-                    markerTambahPelanggan.addListener('dragend', function (event) {
-                        markerLocation(markerTambahPelanggan, 'inputLat', 'inputLng');
-                    });
-                } else {
-                    markerTambahPelanggan.setPosition(clickedLocation);
-                }
-                markerLocation(markerTambahPelanggan, 'inputLat', 'inputLng');
-                //showInfo(this.position);
-            });
-            
-        }
+   marker = new google.maps.Marker({
+     map: map,
+     draggable: true
+   });
 
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function (e) {
-                var nlat = e.coords.latitude;
-                var nlng = e.coords.longitude;
-                zoom = 18;
-                var newCenterOfMap = new google.maps.LatLng(nlat, nlng);
-                mapTambahPelanggan.setCenter(newCenterOfMap)
-                mapTambahPelanggan.setZoom(zoom)
-            });
-        }
-    }
-
-    // button di map tambah pelanggan
-    function CenterControlTambah(controlDiv) {
-        const controlUI = document.createElement("div");
-        controlUI.style.backgroundColor = "#fff";
-        controlUI.style.border = "1px solid #fff";
-        controlUI.style.borderRadius = "3px";
-        controlUI.style.boxShadow = "0 1px 3px rgba(0,0,0,.3)";
-        controlUI.style.cursor = "pointer";
-        controlUI.style.margin = "10px";
-        controlUI.style.padding = "4px";
-        controlUI.style.textAlign = "center";
-        controlUI.title = "Click untuk hapus lokasi";
-        controlDiv.appendChild(controlUI);
-        const controlText = document.createElement("div");
-        controlText.style.color = "red";
-        controlText.style.fontSize = "22px";
-        controlText.style.paddingLeft = "6px";
-        controlText.style.paddingRight = "6px";
-        controlText.innerHTML = '<i class="fa fa-times"></i>';
-        controlUI.appendChild(controlText);
-        controlUI.addEventListener("click", () => {
-            if (markerTambahPelanggan) {
-                markerTambahPelanggan.setMap(null)
-                markerTambahPelanggan = false;
-                document.getElementById('inputLat').value = "";
-                document.getElementById('inputLng').value = "";
-            }
-        });
-    }
-
-    function markerLocation(marker, idLat, idLng) {
+   // Get the user's current location using geolocation
+   if (navigator.geolocation) {
+     navigator.geolocation.getCurrentPosition(function(position) {
+       const userLocation = {
+         lat: position.coords.latitude,
+         lng: position.coords.longitude
+       };
+       map.setCenter(userLocation);
+       marker.setPosition(userLocation);
         var currentLocation = marker.getPosition();
-        document.getElementById(idLat).value = currentLocation.lat();
-        document.getElementById(idLng).value = currentLocation.lng();
-    }
+        document.getElementById("inputLat").value = currentLocation.lat();
+        document.getElementById("inputLng").value = currentLocation.lng();
+     });
+   }
+
+   autocomplete = new google.maps.places.Autocomplete(
+     document.getElementById('autocomplete')
+   );
+
+   autocomplete.addListener('place_changed', onPlaceChanged);
+   map.addListener('click', onMapClick);
+ }
+
+ function onPlaceChanged() {
+   const place = autocomplete.getPlace();
+   if (!place.geometry) {
+     console.log("Place details not available");
+     return;
+   }
+
+   if (place.geometry.viewport) {
+     map.fitBounds(place.geometry.viewport);
+   } else {
+     map.setCenter(place.geometry.location);
+     map.setZoom(18);
+   }
+
+   marker.setPosition(place.geometry.location);
+   var currentLocation = marker.getPosition();
+        document.getElementById("inputLat").value = currentLocation.lat();
+        document.getElementById("inputLng").value = currentLocation.lng();
+ }
+
+ function onMapClick(event) {
+   marker.setPosition(event.latLng);
+   var currentLocation = marker.getPosition();
+        document.getElementById("inputLat").value = currentLocation.lat();
+        document.getElementById("inputLng").value = currentLocation.lng();
+ }
+
+
+    //     let mapTambahPelanggan = false;
+    // let markerTambahPelanggan = false;
+    // let controlDelMarker = false;
+    
+    // function showInfo(latlng) {
+    //   geocoder.geocode({
+    //     'latLng': latlng
+    //   }, function(results, status) {
+    //     if (status == google.maps.GeocoderStatus.OK) {
+    //       if (results[1]) {
+    //         // here assign the data to asp lables
+    //         // document.getElementById('<%=addressStandNo.ClientID %>').value = results[1].formatted_address;
+    //         alert( results[1].formatted_address);
+    //       } else {
+    //         alert('No results found');
+    //       }
+    //     } else {
+    //       alert('Geocoder failed due to: ' + status);
+    //     }
+    //   });
+    // }
+    // function initMapTambahPelanggan() {
+    //     const image = "https://my.radboox.com/public/upload/files/marker.png";
+    //     var lat = -2.548926;
+    //     var lng = 118.0148634;
+    //     var zoom = 18;
+    //     var centerOfMap = new google.maps.LatLng(lat, lng);
+    //     var options = {
+    //         center: centerOfMap,
+    //         zoom: zoom,
+    //         mapTypeControl: true,
+    //         mapTypeControlOptions: {
+    //             style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+    //             position: google.maps.ControlPosition.TOP_CENTER,
+    //         },
+    //         zoomControl: true,
+    //         streetViewControl: false,
+    //         styles: [
+    //             {
+    //                 "featureType": "poi",
+    //                 "stylers": [
+    //                     {
+    //                         "visibility": "on"
+    //                     }
+    //                 ]
+    //             },
+    //             {
+    //                 "featureType": "poi",
+    //                 "elementType": "geometry",
+    //                 "stylers": [
+    //                     {
+    //                         "visibility": "off"
+    //                     }
+    //                 ]
+    //             },
+    //             {
+    //                 "featureType": "poi",
+    //                 "elementType": "labels",
+    //                 "stylers": [
+    //                     {
+    //                         "visibility": "on"
+    //                     }
+    //                 ]
+    //             },
+    //             {
+    //                 "featureType": "poi",
+    //                 "elementType": "labels.icon",
+    //                 "stylers": [
+    //                     {
+    //                         "visibility": "off"
+    //                     }
+    //                 ]
+    //             },
+    //             {
+    //                 "featureType": "poi",
+    //                 "elementType": "labels.text",
+    //                 "stylers": [
+    //                     {
+    //                         "visibility": "on"
+    //                     }
+    //                 ]
+    //             }
+    //         ]
+    //     };
+
+    //     if (!mapTambahPelanggan) {
+    //         mapTambahPelanggan = new google.maps.Map(document.getElementById("map"), options);
+
+    //         if (!controlDelMarker) {
+    //             const centerControlDiv = document.createElement("div");
+    //             CenterControlTambah(centerControlDiv);
+    //             mapTambahPelanggan.controls[google.maps.ControlPosition.TOP_LEFT].push(centerControlDiv);
+    //             controlDelMarker = true;
+    //         }
+
+    //         mapTambahPelanggan.addListener('click', function (event) {
+    //             var clickedLocation = event.latLng;
+    //             if (!markerTambahPelanggan) {
+    //                 const marker = new google.maps.Marker({
+    //                     position: clickedLocation,
+    //                     map: mapTambahPelanggan,
+    //                     draggable: true,
+    //                     icon: image
+    //                 });
+    //                 markerTambahPelanggan = marker;
+    //                 markerTambahPelanggan.addListener('dragend', function (event) {
+    //                     markerLocation(markerTambahPelanggan, 'inputLat', 'inputLng');
+    //                 });
+    //             } else {
+    //                 markerTambahPelanggan.setPosition(clickedLocation);
+    //             }
+    //             markerLocation(markerTambahPelanggan, 'inputLat', 'inputLng');
+    //             //showInfo(this.position);
+    //         });
+            
+    //     }
+
+    //     if (navigator.geolocation) {
+    //         navigator.geolocation.getCurrentPosition(function (e) {
+    //             var nlat = e.coords.latitude;
+    //             var nlng = e.coords.longitude;
+    //             zoom = 18;
+    //             var newCenterOfMap = new google.maps.LatLng(nlat, nlng);
+    //             mapTambahPelanggan.setCenter(newCenterOfMap)
+    //             mapTambahPelanggan.setZoom(zoom)
+    //         });
+    //     }
+    // }
+
+    // // button di map tambah pelanggan
+    // function CenterControlTambah(controlDiv) {
+    //     const controlUI = document.createElement("div");
+    //     controlUI.style.backgroundColor = "#fff";
+    //     controlUI.style.border = "1px solid #fff";
+    //     controlUI.style.borderRadius = "3px";
+    //     controlUI.style.boxShadow = "0 1px 3px rgba(0,0,0,.3)";
+    //     controlUI.style.cursor = "pointer";
+    //     controlUI.style.margin = "10px";
+    //     controlUI.style.padding = "4px";
+    //     controlUI.style.textAlign = "center";
+    //     controlUI.title = "Click untuk hapus lokasi";
+    //     controlDiv.appendChild(controlUI);
+    //     const controlText = document.createElement("div");
+    //     controlText.style.color = "red";
+    //     controlText.style.fontSize = "22px";
+    //     controlText.style.paddingLeft = "6px";
+    //     controlText.style.paddingRight = "6px";
+    //     controlText.innerHTML = '<i class="fa fa-times"></i>';
+    //     controlUI.appendChild(controlText);
+    //     controlUI.addEventListener("click", () => {
+    //         if (markerTambahPelanggan) {
+    //             markerTambahPelanggan.setMap(null)
+    //             markerTambahPelanggan = false;
+    //             document.getElementById('inputLat').value = "";
+    //             document.getElementById('inputLng').value = "";
+    //         }
+    //     });
+    // }
+
+    // function markerLocation(marker, idLat, idLng) {
+    //     var currentLocation = marker.getPosition();
+    //     document.getElementById(idLat).value = currentLocation.lat();
+    //     document.getElementById(idLng).value = currentLocation.lng();
+    // }
 </script>
 </body>
 </html>
