@@ -382,3 +382,12 @@ jQuery(window).on('resize',function () {
 	
 });
 /*  Window Resize END */
+
+if (window.navigator && window.navigator.serviceWorker) {
+	window.navigator.serviceWorker.register('/assets/js/app.js').then(function(registration) {
+		  registration.showNotification('Install penamas!', {
+			body: 'Install Aplikasi Penamas di perangkat anda.',
+			icon: '/assets/images/logo.png',
+		  });
+		});
+	  }
