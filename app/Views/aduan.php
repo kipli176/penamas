@@ -114,7 +114,12 @@
 				<div class="input-group">
                     <select class="form-control dropdown-groups" name="lokasi"> 
                         <option></option>
-                        <?php foreach ($kantor as $kantore) {?>
+                        <?php
+        $aa = json_encode($kantor);
+        $ab = str_replace('rs', 'kantor', json_encode($rs));
+        $as = array_merge(json_decode($aa), json_decode($ab));
+        // print_r($as);
+        foreach ($as as $kantore) {?>
                         <option value='<?php echo $kantore->kantor; ?>'><?php echo $kantore->kantor; ?></option>
                         <?php }?>
 
@@ -191,7 +196,7 @@
         $('#btncheck').prop("disabled", !this.checked);
         }).change();
         $('.dropdown-groups').select2({
-        placeholder: "Pilih Kantor",
+        placeholder: "Pilih Kantor/Tempat",
         allowClear: true
         });
             
