@@ -122,7 +122,7 @@ Salam,
 
 Jasa Raharja');
 
-                    kirimPesan('6282176846801', '*_This is an auto generated message, please do not reply._*
+                    kirimPesan('082176846801', '*_This is an auto generated message, please do not reply._*
 
 Terimakasih '.$data['jk'].' *'.$data['nama'].'*
 Laporan anda dengan nomor *#AD'.$data['kode'].'* sudah kami terima dan sedang kami proses. 
