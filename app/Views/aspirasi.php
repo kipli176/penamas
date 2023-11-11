@@ -146,7 +146,7 @@
 	&nbsp;</li>
 	<li>2. Perlindungan dan jaminan kerahasiaan tidak diberikan kepada Pelapor yang terbukti melakukan pelaporan palsu dan/atau fitnah. Apabila hasil investigasi menyimpulkan dan dapat dibuktikan bahwa pelaporan yang disampaikan mengandung laporan palsu, fitnah, tanpa dasar yang jelas, maka pelapor dapat digugat balik atau dikenai sanksi sesuai dengan peraturan perundang-undangan atau peraturan internal perusahaan.<br />
 	&nbsp;</li>
-	<li>3. Jika laporan yang disampaikan tidak terbukti, maka pengelola sistem pelaporan pelanggaran akan mengenakan sanksi kepada pelapor.</li>
+	<li>3. Jika Laporan yang disampaikan tidak terbukti, maka pengelola sistem pelaporan akan mengenakan sanksi kepada pelapor.</li>
 </ol>
 
                                                 </div>
