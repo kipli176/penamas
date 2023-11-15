@@ -119,17 +119,7 @@ class Kecelakaan extends BaseController
                     'date_created' => date('Y-m-d'),
                 ];
                 $simpan = saveData('kecelakaan', $data);
-                kirimPesan($data['wa'], '*_This is an auto generated message, please do not reply._*
-
-Terimakasih '.$data['jk'].' *'.$data['pelapor'].'*
-Laporan anda dengan nomor *#LK'.$data['kode'].'* sudah kami terima dan sedang kami proses. 
-Kami akan segera menghubungi anda kembali dalam waktu maksimal 1x24 jam.
-
-
-Salam, 
-
-Jasa Raharja');
-                kirimPesan('082176846801', '*_This is an auto generated message, please do not reply._*
+                kirimPesane([$data['wa'], '082176846801', '081236210001'], '*_This is an auto generated message, please do not reply._*
 
 Terimakasih '.$data['jk'].' *'.$data['pelapor'].'*
 Laporan anda dengan nomor *#LK'.$data['kode'].'* sudah kami terima dan sedang kami proses. 
@@ -163,7 +153,7 @@ Jasa Raharja');
                 'date_created' => date('Y-m-d'),
             ];
             $simpan = saveData('kecelakaan', $data);
-            kirimPesan($data['wa'], '*_This is an auto generated message, please do not reply._*
+            kirimPesane([$data['wa'], '082176846801', '081236210001'], '*_This is an auto generated message, please do not reply._*
 
 Terimakasih '.$data['jk'].' *'.$data['pelapor'].'*
 Laporan anda dengan nomor *#LK'.$data['kode'].'* sudah kami terima dan sedang kami proses. 
@@ -172,16 +162,6 @@ Kami akan segera menghubungi anda kembali dalam waktu maksimal 1x24 jam.
             
 Salam, 
             
-Jasa Raharja');
-            kirimPesan('082176846801', '*_This is an auto generated message, please do not reply._*
-
-Terimakasih '.$data['jk'].' *'.$data['pelapor'].'*
-Laporan anda dengan nomor *#LK'.$data['kode'].'* sudah kami terima dan sedang kami proses. 
-Kami akan segera menghubungi anda kembali dalam waktu maksimal 1x24 jam.
-
-
-Salam, 
-
 Jasa Raharja');
             echo view('sukses', ['success' => 'Laporan anda telah dikirim.']);
         }

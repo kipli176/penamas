@@ -72,7 +72,7 @@ function getAlls($a, $limit = 100)
     $database = $connection->getDatabase();
     $collection = $database->$a;
     try {
-        $cursor = $collection->find(['status'=>0], ['limit' => $limit, 'sort' => ['_id' => -1]]);
+        $cursor = $collection->find(['status' => 0], ['limit' => $limit, 'sort' => ['_id' => -1]]);
         $books = $cursor->toArray();
 
         return $books;
@@ -315,4 +315,23 @@ function kirimPesan($a, $b)
     ]);
     $response = curl_exec($curl);
     curl_close($curl);
+}
+function kirimPesane($a, $b)
+{
+    foreach ($a as $no) {
+        $curl = curl_init();
+        curl_setopt_array($curl, [
+        CURLOPT_URL => 'http://185.205.244.115:3333/message/text?key=e492044d-659e-43ba-810a-17abbfc020a0',
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => '',
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 0,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => 'POST',
+        CURLOPT_POSTFIELDS => 'id=62'.substr($no, 1).'&message='.$b,
+        ]);
+        $response = curl_exec($curl);
+        curl_close($curl);
+    }
 }
